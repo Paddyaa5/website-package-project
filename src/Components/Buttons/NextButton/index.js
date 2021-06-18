@@ -1,10 +1,12 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+import { StyledButton } from "../../../Styles/CommonStyles";
 
+const NextButton = styled(StyledButton)`
+    bottom: 5vw;
+    right: 5vw;
+`;
 
 export default function index() {
-    return (
-        <div>
-            <NextButton onClick={nextSection}>Next</NextButton>
-        </div>
-    )
+    return <NextButton>Next</NextButton>;
 }
