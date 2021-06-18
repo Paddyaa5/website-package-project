@@ -11,6 +11,7 @@ const Container = styled.section`
     width: 100%;
     height: 100%;
     border-radius: 25px;
+    
 `;
 
 export default function index({ section, setSection, formData, setFormData }) {
