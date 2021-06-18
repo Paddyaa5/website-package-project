@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, Theme } from "./Styles/GlobalStyle";
-import SectionOne from "./Components/SectionOne";
-import SectionTwo from "./Components/SectionTwo";
-import SectionThree from "./Components/SectionThree";
-import SectionFour from "./Components/SectionFour";
-import SectionFive from "./Components/SectionFive";
+//components
+import LeftColumn from "./Components/LeftCol";
+import RightColumn from "./Components/RightCol";
+import Buttons from "./Components/Buttons";
 
 const AppContainer = styled.div`
     position: relative;
@@ -13,21 +12,9 @@ const AppContainer = styled.div`
     width: 100vw;
     padding: 5vw;
 `;
-const NextButton = styled.button`
-    position: absolute;
-    bottom: 5vw;
-    right: 5vw;
-    padding: 10px 30px;
-`;
-const PrevButton = styled.button`
-    position: absolute;
-    bottom: 5vw;
-    right: 25vw;
-    padding: 10px 30px;
-`;
 
 const App = () => {
-    const [section, setSection] = useState(1);
+    const [section, setSection] = useState(5);
     const [formData, setFormData] = useState({});
 
     const nextSection = () => {
@@ -43,7 +30,19 @@ const App = () => {
         <ThemeProvider theme={Theme}>
             <GlobalStyle />
             <AppContainer>
-              
+                <LeftColumn
+                    section={section}
+                    setSection={setSection}
+                    formData={formData}
+                    setFormData={setFormData}
+                ></LeftColumn>
+                <RightColumn
+                    section={section}
+                    setSection={setSection}
+                    formData={formData}
+                    setFormData={setFormData}
+                ></RightColumn>
+                <Buttons section={section} />
             </AppContainer>
         </ThemeProvider>
     );

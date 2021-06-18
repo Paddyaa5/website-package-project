@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
-export const Example = styled.div`
-    height: 100px;
+export const StyledButton = styled.button`
+    position: absolute;
+    padding: 10px 30px;
 `;
