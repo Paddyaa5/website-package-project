@@ -43,64 +43,7 @@ const App = () => {
         <ThemeProvider theme={Theme}>
             <GlobalStyle />
             <AppContainer>
-                {section === 1 && (
-                    <>
-                        <SectionOne
-                            section={section}
-                            setSection={setSection}
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        <NextButton onClick={nextSection}>Next</NextButton>
-                    </>
-                )}
-                {section === 2 && (
-                    <>
-                        <SectionTwo
-                            section={section}
-                            setSection={setSection}
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        <PrevButton onClick={prevSection}>Previous</PrevButton>
-                        <NextButton onClick={nextSection}>Next</NextButton>
-                    </>
-                )}
-                {section === 3 && (
-                    <>
-                        <SectionThree
-                            section={section}
-                            setSection={setSection}
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        <PrevButton onClick={prevSection}>Previous</PrevButton>
-                        <NextButton onClick={nextSection}>Next</NextButton>
-                    </>
-                )}
-                {section === 4 && (
-                    <>
-                        <SectionFour
-                            section={section}
-                            setSection={setSection}
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        <PrevButton onClick={prevSection}>Previous</PrevButton>
-                        <NextButton onClick={nextSection}>Next</NextButton>
-                    </>
-                )}
-                {section === 5 && (
-                    <>
-                        <SectionFive
-                            section={section}
-                            setSection={setSection}
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        <PrevButton onClick={prevSection}>Previous</PrevButton>
-                    </>
-                )}
+              
             </AppContainer>
         </ThemeProvider>
     );
