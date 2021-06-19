@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -25,6 +26,7 @@ a, button{
     outline: none;
     text-decoration: none;
     cursor: pointer;
+    
 }
 h1,h2,h3{
     font-weight: 800

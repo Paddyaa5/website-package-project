@@ -11,10 +11,11 @@ const AppContainer = styled.div`
     height: 100vh;
     width: 100vw;
     padding: 5vw;
+    
 `;
 
 const App = () => {
-    const [section, setSection] = useState(5);
+    const [section, setSection] = useState(2);
     const [formData, setFormData] = useState({});
 
     const nextSection = () => {
