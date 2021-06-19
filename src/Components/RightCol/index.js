@@ -11,7 +11,7 @@ const Container = styled.section`
     height: 100%;
 `;
 
-export default function index({ section, setSection, formData, setFormData }) {
+export default function RightColumn({ section, setSection, formData, setFormData }) {
     return (
         <Container>
             {section === 2 && (

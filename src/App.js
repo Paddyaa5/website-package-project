@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, Theme } from "./Styles/GlobalStyle";
 //components
@@ -14,35 +14,40 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-    const [section, setSection] = useState(5);
+    const [animate, setAnimate] = useState(0);
+    const [section, setSection] = useState(0);
     const [formData, setFormData] = useState({});
 
-    const nextSection = () => {
-        let temp = section + 1;
-        setSection(temp);
-    };
-    const prevSection = () => {
-        let temp = section - 1;
-        setSection(temp);
-    };
+    useEffect(() => {
+        setTimeout(() => {
+            setSection(1);
+        }, 50);
+    }, []);
 
     return (
         <ThemeProvider theme={Theme}>
             <GlobalStyle />
             <AppContainer>
                 <LeftColumn
+                    animate={animate}
                     section={section}
                     setSection={setSection}
                     formData={formData}
                     setFormData={setFormData}
                 ></LeftColumn>
                 <RightColumn
+                    animate={animate}
                     section={section}
                     setSection={setSection}
                     formData={formData}
                     setFormData={setFormData}
                 ></RightColumn>
-                <Buttons section={section} />
+                <Buttons
+                    section={section}
+                    setSection={setSection}
+                    animate={animate}
+                    setAnimate={setAnimate}
+                />
             </AppContainer>
         </ThemeProvider>
     );

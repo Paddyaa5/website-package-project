@@ -7,7 +7,6 @@ const Container = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px dotted black;
 `;
 
 export default function SectionFour({ section, setSection, formData, setFormData }) {
