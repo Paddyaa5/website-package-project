@@ -9,6 +9,7 @@ import SectionFour from "./SectionFour";
 import SectionFive from "./SectionFive";
 
 const Container = styled.section`
+    position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 25px;
@@ -26,7 +27,7 @@ export default function LeftColumn({ animate, section, setSection, formData, set
             });
         } else if (animate === "toS2") {
             gsap.to(containerRef, {
-                width: "30vw",
+                width: "35%",
                 duration: 1,
             });
         } else if (animate === "toS5") {

@@ -8,9 +8,15 @@ import Buttons from "./Components/Buttons";
 
 const AppContainer = styled.div`
     position: relative;
+    min-height: 400px;
     height: 100vh;
     width: 100vw;
-    padding: 5vw;
+    padding: 4vw;
+    .inner-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
 `;
 
 const App = () => {
@@ -28,26 +34,28 @@ const App = () => {
         <ThemeProvider theme={Theme}>
             <GlobalStyle />
             <AppContainer>
-                <LeftColumn
-                    animate={animate}
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                ></LeftColumn>
-                <RightColumn
-                    animate={animate}
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                ></RightColumn>
-                <Buttons
-                    section={section}
-                    setSection={setSection}
-                    animate={animate}
-                    setAnimate={setAnimate}
-                />
+                <div className="inner-container">
+                    <LeftColumn
+                        animate={animate}
+                        section={section}
+                        setSection={setSection}
+                        formData={formData}
+                        setFormData={setFormData}
+                    ></LeftColumn>
+                    <RightColumn
+                        animate={animate}
+                        section={section}
+                        setSection={setSection}
+                        formData={formData}
+                        setFormData={setFormData}
+                    ></RightColumn>
+                    <Buttons
+                        section={section}
+                        setSection={setSection}
+                        animate={animate}
+                        setAnimate={setAnimate}
+                    />
+                </div>
             </AppContainer>
         </ThemeProvider>
     );
