@@ -15,6 +15,22 @@ const NextButton = styled(StyledButton)`
     background-position: left;
 `;
 
-export default function index() {
-    return <NextButton>Next</NextButton>;
+export default function index({ section, setSection, animate, setAnimate }) {
+    const updateHandler = () => {
+        if (section === 1) {
+            setAnimate("toS2");
+        } else if (section === 2) {
+            setAnimate("toS3");
+        } else if (section === 3) {
+            setAnimate("toS4");
+        } else if (section === 4) {
+            setAnimate("toS5");
+        }
+        setTimeout(() => {
+            let temp = section + 1;
+            setSection(temp);
+        }, 500);
+    };
+
+    return <NextButton onClick={updateHandler}>Next</NextButton>;
 }

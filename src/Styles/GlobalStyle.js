@@ -8,6 +8,7 @@ export const Theme = {
     lightGray: "#343a40",
     lightestGray: "#6c757d",
     light: "#f8f9fa",
+    dark: "#222222",
 };
 
 export const GlobalStyle = createGlobalStyle`

@@ -3,31 +3,73 @@ import React from "react";
 import NextButton from "./NextButton";
 import PrevButton from "./PreviousButton";
 
-export default function index({ section }) {
+export default function index({ section, setSection, animate, setAnimate }) {
     return (
         <>
-            {section === 1 && <NextButton />}
+            {section === 1 && (
+                <NextButton
+                    animate={animate}
+                    setAnimate={setAnimate}
+                    section={section}
+                    setSection={setSection}
+                />
+            )}
             {section === 2 && (
                 <>
-                    <NextButton />
-                    <PrevButton />
+                    <NextButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
+                    <PrevButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
                 </>
             )}
             {section === 3 && (
                 <>
-                    <NextButton />
-                    <PrevButton />
+                    <NextButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
+                    <PrevButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
                 </>
             )}
             {section === 4 && (
                 <>
-                    <NextButton />
-                    <PrevButton />
+                    <NextButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
+                    <PrevButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
                 </>
             )}
             {section === 5 && (
                 <>
-                    <PrevButton />
+                    <PrevButton
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
                 </>
             )}
         </>

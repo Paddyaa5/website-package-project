@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, Theme } from "./Styles/GlobalStyle";
 //components
@@ -8,42 +8,54 @@ import Buttons from "./Components/Buttons";
 
 const AppContainer = styled.div`
     position: relative;
+    min-height: 400px;
     height: 100vh;
     width: 100vw;
-    padding: 5vw;
-    
+    padding: 4vw;
+    .inner-container {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
 `;
 
 const App = () => {
-    const [section, setSection] = useState(2);
+    const [animate, setAnimate] = useState(0);
+    const [section, setSection] = useState(0);
     const [formData, setFormData] = useState({});
 
-    const nextSection = () => {
-        let temp = section + 1;
-        setSection(temp);
-    };
-    const prevSection = () => {
-        let temp = section - 1;
-        setSection(temp);
-    };
+    useEffect(() => {
+        setTimeout(() => {
+            setSection(1);
+        }, 50);
+    }, []);
 
     return (
         <ThemeProvider theme={Theme}>
             <GlobalStyle />
             <AppContainer>
-                <LeftColumn
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                ></LeftColumn>
-                <RightColumn
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                ></RightColumn>
-                <Buttons section={section} />
+                <div className="inner-container">
+                    <LeftColumn
+                        animate={animate}
+                        section={section}
+                        setSection={setSection}
+                        formData={formData}
+                        setFormData={setFormData}
+                    ></LeftColumn>
+                    <RightColumn
+                        animate={animate}
+                        section={section}
+                        setSection={setSection}
+                        formData={formData}
+                        setFormData={setFormData}
+                    ></RightColumn>
+                    <Buttons
+                        section={section}
+                        setSection={setSection}
+                        animate={animate}
+                        setAnimate={setAnimate}
+                    />
+                </div>
             </AppContainer>
         </ThemeProvider>
     );

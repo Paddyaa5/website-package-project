@@ -1,19 +1,50 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 //components
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
 import SectionFour from "./SectionFour";
 
 const Container = styled.section`
-    display: none;
-    width: 100%;
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    width: 60%;
     height: 100%;
+    border-radius: 25px;
+    background-color: ${(props) => props.theme.darkest};
 `;
 
-export default function index({ section, setSection, formData, setFormData }) {
+export default function RightColumn({ animate, section, setSection, formData, setFormData }) {
+    let containerRef = useRef(null);
+
+    useEffect(() => {
+        if (animate === "backS1") {
+            gsap.to(containerRef, {
+                opacity: 0,
+                duration: 1,
+            });
+        } else if (animate === "toS2") {
+            gsap.to(containerRef, {
+                opacity: 1,
+                duration: 1,
+            });
+        } else if (animate === "toS5") {
+            gsap.to(containerRef, {
+                opacity: 0,
+                duration: 1,
+            });
+        } else if (animate === "backS4") {
+            gsap.to(containerRef, {
+                opacity: 1,
+                duration: 1,
+            });
+        }
+    }, [animate]);
+
     return (
-        <Container>
+        <Container ref={(el) => (containerRef = el)}>
             {section === 2 && (
                 <SectionTwo
                     section={section}
