@@ -11,8 +11,11 @@ const PrevButton = styled(StyledButton)`
     transition: 500ms background-position ease-in-out, transform 250ms;
     color: #f8f9fa;
     :hover {
+
     background-position: right;
     transform: scale(1.05)
+
+
     }
 `;
 
