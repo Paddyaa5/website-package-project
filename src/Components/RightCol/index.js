@@ -10,7 +10,7 @@ const Container = styled.section`
     position: absolute;
     opacity: 0;
     right: 0;
-    width: 60%;
+    width: 60vw;
     height: 100%;
     border-radius: 25px;
     background-color: ${(props) => props.theme.darkest};
