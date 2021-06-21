@@ -2,12 +2,9 @@ import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 //components
-import SectionOne from "./SectionOne";
-import SectionTwo from "./SectionTwo";
-import SectionThree from "./SectionThree";
-import SectionFour from "./SectionFour";
-import SectionFive from "./SectionFive";
 import ProgressBar from "./ProgressBar";
+import ProgressNumber from "./ProgressNumber";
+import ProgressText from "./ProgressText";
 
 const Container = styled.section`
     position: absolute;
@@ -18,7 +15,12 @@ const Container = styled.section`
     padding: 40px 60px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+    .logo {
+        height: 75px;
+        width: 75px;
+        background-color: pink;
+    }
 `;
 
 export default function LeftColumn({ animate, section, setSection, formData, setFormData }) {
@@ -54,6 +56,9 @@ export default function LeftColumn({ animate, section, setSection, formData, set
 
     return (
         <Container ref={(el) => (containerRef = el)}>
+            <div className="logo"></div>
+            <ProgressNumber animate={animate} section={section} />
+            <ProgressText animate={animate} section={section} />
             <ProgressBar
                 animate={animate}
                 section={section}
