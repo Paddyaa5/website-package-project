@@ -3,21 +3,16 @@ import styled from "styled-components";
 import { StyledButton } from "../../../Styles/CommonStyles";
 
 const NextButton = styled(StyledButton)`
-
-    bottom: 45px;
+    bottom: 4vh;
     right: 1vw;
-    background-image: linear-gradient(to right, #EF7E00, #E75A0D, #E75A0D, #EF7E00);
-
+    background-image: linear-gradient(to right, #ef7e00, #e75a0d, #e75a0d, #ef7e00);
     background-size: 200%;
     background-position: right;
     transition: 500ms background-position ease-in-out, transform 250ms;
     color: #222222;
-
     :hover {
-
-    background-position: left;
-    transform: scale(1.05)
-
+        background-position: left;
+        transform: scale(1.05);
     }
 `;
 

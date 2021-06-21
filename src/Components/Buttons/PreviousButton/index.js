@@ -3,19 +3,16 @@ import styled from "styled-components";
 import { StyledButton } from "../../../Styles/CommonStyles";
 
 const PrevButton = styled(StyledButton)`
-    bottom: 45px;
-    right: 850px;
+    bottom: 4vh;
+    right: 45vw;
     background-image: linear-gradient(to right, #212529, #343a40, #343a40, #212529);
     background-size: 200%;
     background-position: left;
     transition: 500ms background-position ease-in-out, transform 250ms;
     color: #f8f9fa;
     :hover {
-
-    background-position: right;
-    transform: scale(1.05)
-
-
+        background-position: right;
+        transform: scale(1.05);
     }
 `;
 
