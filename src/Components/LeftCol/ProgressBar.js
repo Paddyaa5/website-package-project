@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 
@@ -32,7 +32,7 @@ const Container = styled.div`
     }
 `;
 
-export default function ProgressBar({ animate, section, setSection, formData, setFormData }) {
+export default function ProgressBar({ animate }) {
     let number1 = useRef(null);
     let number2 = useRef(null);
     let number3 = useRef(null);

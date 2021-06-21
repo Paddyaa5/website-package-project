@@ -11,7 +11,8 @@ const PrevButton = styled(StyledButton)`
     transition: 500ms background-position ease-in-out;
     color: #f8f9fa;
     :hover {
-    background-position: right;
+        background-position: right;
+    }
 `;
 
 export default function index({ section, setSection, animate, setAnimate }) {
