@@ -26,7 +26,7 @@ export default function ProgressText({ animate, section }) {
     const [text, setText] = useState([
         [""],
         ["Lets", "Get", "Started"],
-        ["What website", "are you", "looking for?"],
+        ["Tell us", "a little bit", "about you"],
         ["What website", "are you", "looking for?"],
         ["What website", "are you", "looking for?"],
         ["What website", "are you", "looking for?"],
