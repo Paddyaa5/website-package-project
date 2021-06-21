@@ -7,6 +7,7 @@ import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
 import SectionFour from "./SectionFour";
 import SectionFive from "./SectionFive";
+import ProgressBar from "./ProgressBar";
 
 const Container = styled.section`
     position: absolute;
@@ -14,6 +15,10 @@ const Container = styled.section`
     height: 100%;
     border-radius: 25px;
     background-color: ${(props) => props.theme.dark};
+    padding: 40px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 `;
 
 export default function LeftColumn({ animate, section, setSection, formData, setFormData }) {
@@ -23,21 +28,25 @@ export default function LeftColumn({ animate, section, setSection, formData, set
         if (animate === "backS1") {
             gsap.to(containerRef, {
                 width: "100%",
+                padding: "40px 60px",
                 duration: 1,
             });
         } else if (animate === "toS2") {
             gsap.to(containerRef, {
-                width: "35%",
+                width: "30vw",
+                padding: "40px 20px",
                 duration: 1,
             });
         } else if (animate === "toS5") {
             gsap.to(containerRef, {
                 width: "100%",
+                padding: "40px 60px",
                 duration: 1,
             });
         } else if (animate === "backS4") {
             gsap.to(containerRef, {
                 width: "30vw",
+                padding: "40px 20px",
                 duration: 1,
             });
         }
@@ -45,46 +54,13 @@ export default function LeftColumn({ animate, section, setSection, formData, set
 
     return (
         <Container ref={(el) => (containerRef = el)}>
-            {section === 1 && (
-                <SectionOne
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                />
-            )}
-            {section === 2 && (
-                <SectionTwo
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                />
-            )}
-            {section === 3 && (
-                <SectionThree
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                />
-            )}
-            {section === 4 && (
-                <SectionFour
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                />
-            )}
-            {section === 5 && (
-                <SectionFive
-                    section={section}
-                    setSection={setSection}
-                    formData={formData}
-                    setFormData={setFormData}
-                />
-            )}
+            <ProgressBar
+                animate={animate}
+                section={section}
+                setSection={setSection}
+                formData={formData}
+                setFormData={setFormData}
+            />
         </Container>
     );
 }
