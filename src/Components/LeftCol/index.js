@@ -3,8 +3,10 @@ import styled from "styled-components";
 import gsap from "gsap";
 //components
 import ProgressBar from "./ProgressBar";
+import StartButton from "../Buttons/StartButton"
 import ProgressNumber from "./ProgressNumber";
 import ProgressText from "./ProgressText";
+
 
 const Container = styled.section`
     position: absolute;
@@ -65,6 +67,11 @@ export default function LeftColumn({ animate, section, setSection, formData, set
                 setSection={setSection}
                 formData={formData}
                 setFormData={setFormData}
+            />
+            <StartButton
+                animate={animate}
+                section={section}
+                setSection={setSection}
             />
         </Container>
     );
