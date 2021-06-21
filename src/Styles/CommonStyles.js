@@ -6,8 +6,9 @@ export const StyledButton = styled.button`
     border: none;
     color: white;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 10px;
     cursor: pointer;
     width: 120px;
+    height: 40px
 `;

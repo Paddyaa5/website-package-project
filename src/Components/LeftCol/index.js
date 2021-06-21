@@ -8,6 +8,7 @@ import SectionThree from "./SectionThree";
 import SectionFour from "./SectionFour";
 import SectionFive from "./SectionFive";
 import ProgressBar from "./ProgressBar";
+import StartButton from "../Buttons/StartButton"
 
 const Container = styled.section`
     position: absolute;
@@ -60,6 +61,11 @@ export default function LeftColumn({ animate, section, setSection, formData, set
                 setSection={setSection}
                 formData={formData}
                 setFormData={setFormData}
+            />
+            <StartButton
+                animate={animate}
+                section={section}
+                setSection={setSection}
             />
         </Container>
     );
