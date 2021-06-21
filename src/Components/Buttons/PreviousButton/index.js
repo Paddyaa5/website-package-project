@@ -4,7 +4,7 @@ import { StyledButton } from "../../../Styles/CommonStyles";
 
 const PrevButton = styled(StyledButton)`
     bottom: 4vh;
-    right: 45vw;
+    right: 48vw;
     background-image: linear-gradient(to right, #212529, #343a40, #343a40, #212529);
     background-size: 200%;
     background-position: left;

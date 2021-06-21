@@ -11,6 +11,7 @@ export const StyledButton = styled.button`
     cursor: pointer;
     width: 120px;
     height: 40px;
+    
 `;
 
 export const StyledSection = styled.section`
