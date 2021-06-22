@@ -5,7 +5,7 @@ import gsap from "gsap";
 const Container = styled.div`
     display: flex;
     overflow: hidden;
-    height: 200px;
+    height: 250px;
     width: 100%;
     opacity: 0;
     display: grid;
@@ -17,29 +17,28 @@ const Container = styled.div`
         overflow: hidden;
         margin: 0;
         color: ${(props) => props.theme.light};
-        font-size: 34px;
+        font-size: calc(20px + 2vw);
     }
 `;
 
 export default function ProgressText({ animate, section }) {
     let containerRef = useRef(null);
-    const [text, setText] = useState([
+    const text = [
         [""],
         ["Lets", "Get", "Started"],
         ["Tell us", "a little bit", "about you"],
         ["What website", "are you", "looking for?"],
-        ["What website", "are you", "looking for?"],
-        ["What website", "are you", "looking for?"],
-        ["What website", "are you", "looking for?"],
-    ]);
+        ["Lets work", "on the finer", "details!"],
+        ["Your", "Package", "Summary"],
+    ];
     const [activeText, setActiveText] = useState(text[section]);
-    let tl = gsap.timeline();
 
     useEffect(() => {
         setActiveText(text[section]);
-    }, [section]);
+    }, [text, section]);
 
     useEffect(() => {
+        let tl = gsap.timeline();
         if (animate === 0) {
             gsap.to(containerRef, {
                 opacity: 1,

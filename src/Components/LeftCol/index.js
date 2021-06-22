@@ -3,10 +3,11 @@ import styled from "styled-components";
 import gsap from "gsap";
 //components
 import ProgressBar from "./ProgressBar";
-import StartButton from "../Buttons/StartButton"
+import StartButton from "../Buttons/StartButton";
 import ProgressNumber from "./ProgressNumber";
 import ProgressText from "./ProgressText";
-
+//images
+import logo from "../../Assets/MB_LOGO.png";
 
 const Container = styled.section`
     position: absolute;
@@ -18,10 +19,11 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 5px 15px 35px 1px #000000;
     .logo {
         height: 75px;
         width: 75px;
-        background-color: pink;
+        object-fit: cover;
     }
 `;
 
@@ -58,7 +60,7 @@ export default function LeftColumn({ animate, section, setSection, formData, set
 
     return (
         <Container ref={(el) => (containerRef = el)}>
-            <div className="logo"></div>
+            <img src={logo} alt="Morgan-Branding-Logo" className="logo" />
             <ProgressNumber animate={animate} section={section} />
             <ProgressText animate={animate} section={section} />
             <ProgressBar
@@ -68,11 +70,7 @@ export default function LeftColumn({ animate, section, setSection, formData, set
                 formData={formData}
                 setFormData={setFormData}
             />
-            <StartButton
-                animate={animate}
-                section={section}
-                setSection={setSection}
-            />
+            <StartButton animate={animate} section={section} setSection={setSection} />
         </Container>
     );
 }
