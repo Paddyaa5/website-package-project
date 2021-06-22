@@ -5,17 +5,17 @@ import gsap from "gsap";
 const Container = styled.h1`
     display: flex;
     overflow: hidden;
-    color: ${(props) => props.theme.light};
-    font-size: 50px;
+    color: ${(props) => props.theme.darkestOrange};
+    font-size: calc(30px + 2vw);
     opacity: 0;
 `;
 
 export default function ProgressNumber({ animate, section }) {
     let containerRef = useRef(null);
     let numberRef = useRef(null);
-    let tl = gsap.timeline();
 
     useEffect(() => {
+        let tl = gsap.timeline();
         if (animate === 0) {
             gsap.to(containerRef, {
                 opacity: 1,
