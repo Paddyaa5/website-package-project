@@ -47,21 +47,59 @@ const Container = styled(StyledSection)`
                 }
             }
         }
+        .slider-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 100px;
+            grid-gap: 20px;
+            align-items: center;
+            .slider {
+                -webkit-appearance: none;
+                height: 10px;
+                border-radius: 3px;
+                outline: none;
+                background-color: rgba(0, 0, 0, 0.25);
+                &::-webkit-slider-thumb {
+                    position: relative;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    background-color: ${(props) => props.theme.darkestOrange};
+                    border-radius: 50%;
+                }
+                &::-moz-range-thumb {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    background-color: ${(props) => props.theme.darkestOrange};
+                    border-radius: 50%;
+                }
+            }
+            .value-box {
+                height: 60px;
+                width: 100px;
+                box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
     }
 `;
 
-export default function SectionFour({ section, setSection, formData, setFormData }) {
-    const [data, setData] = useState({
-        logoDesign: false,
-        virtualTours: false,
-        photography: false,
-        copywriting: false,
-        socialMedia: false,
-    });
+export default function SectionFour({ formData, setFormData }) {
+    const [sliderValue, setSliderValue] = useState(5000);
 
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    const handleText = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const handleSlider = (e) => {
+        setSliderValue(e.target.value);
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
     const handleCheckbox = (e) => {
         e.target.checked
             ? gsap.to(`.${e.target.name}`, {
@@ -74,8 +112,12 @@ export default function SectionFour({ section, setSection, formData, setFormData
                   boxShadow:
                       "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
               });
-        setData({ ...data, [e.target.name]: e.target.checked });
+        setFormData({ ...formData, [e.target.name]: e.target.checked });
     };
+
+    useEffect(() => {
+        console.log(formData);
+    }, [formData]);
 
     return (
         <Container>
@@ -85,7 +127,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     perferences you have.
                 </h5>
                 <h6>Example website design you like, existing branding of your company, etc.</h6>
-                <StyledTextArea />
+                <StyledTextArea name="design-info" onChange={handleText} />
             </section>
             <section className="services-section">
                 <h5>Please select any addition MB services you'd like to add to the package.</h5>
@@ -155,11 +197,21 @@ export default function SectionFour({ section, setSection, formData, setFormData
             </section>
             <section className="budget-section">
                 <h5>Please use the slider to confirm your package budget.</h5>
-                <div className="slider">
-                    <label></label>
+                <div className="slider-container">
+                    <input
+                        type="range"
+                        name="budget"
+                        min={0}
+                        max={10000}
+                        step={10}
+                        className="slider"
+                        value={sliderValue}
+                        onChange={handleSlider}
+                    />
+                    <div className="value-box">
+                        <h3>£{sliderValue}</h3>
+                    </div>
                 </div>
-                <input type="range" name="budget" min="500" max="5000" />
-                <output for="budget" onforminput="value = budget.valueAsNumber" />
             </section>
         </Container>
     );

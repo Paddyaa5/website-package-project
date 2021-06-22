@@ -35,7 +35,7 @@ export default function ProgressText({ animate, section }) {
 
     useEffect(() => {
         setActiveText(text[section]);
-    }, [text, section]);
+    }, [section]);
 
     useEffect(() => {
         let tl = gsap.timeline();
