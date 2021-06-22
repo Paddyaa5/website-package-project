@@ -12,19 +12,18 @@ export const StyledButton = styled.button`
     cursor: pointer;
     width: 120px;
     height: 40px;
-
+    z-index: 5;
     box-shadow: 2px 8px 10px 1px #000000;
 
     :hover {
         filter: brightness(120%);
-        }
-
+    }
 `;
 
 export const StyledSection = styled.section`
     height: 100%;
     width: 100%;
-    padding: 30px 4vw 100px 4vw;
+    padding: 5vh 4vw 100px 4vw;
     display: grid;
     h5 {
         color: ${(props) => props.theme.light};

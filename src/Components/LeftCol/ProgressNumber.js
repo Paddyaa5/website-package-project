@@ -22,6 +22,10 @@ export default function ProgressNumber({ animate, section }) {
                 duration: 0.5,
                 delay: 0.25,
             });
+        } else if (animate === "toS2") {
+            tl.to(numberRef, { y: "-100%", duration: 0.5, delay: 1, ease: "circ.inOut" })
+                .set(numberRef, { y: "100%" })
+                .to(numberRef, { y: 0, duration: 0.5, ease: "circ.inOut" });
         } else {
             tl.to(numberRef, { y: "-100%", duration: 0.5, ease: "circ.inOut" })
                 .set(numberRef, { y: "100%" })

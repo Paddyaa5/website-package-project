@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 //styles
 import { StyledSection, StyledTextArea } from "../../Styles/CommonStyles";
 
 const Container = styled(StyledSection)`
+    opacity: 0;
     section {
         width: 100%;
         margin: 15px 0;
@@ -90,7 +91,32 @@ const Container = styled(StyledSection)`
     }
 `;
 
-export default function SectionFour({ formData, setFormData }) {
+export default function SectionFour({ animate, formData, setFormData }) {
+    let containerRef = useRef(null);
+    useEffect(() => {
+        if (animate === "toS4") {
+            gsap.to(containerRef, {
+                opacity: 1,
+                duration: 0.5,
+            });
+        } else if (animate === "toS5") {
+            gsap.to(containerRef, {
+                opacity: 0,
+                duration: 0.5,
+            });
+        } else if (animate === "backS4") {
+            gsap.to(containerRef, {
+                opacity: 1,
+                duration: 0.5,
+                delay: 0.5,
+            });
+        } else if (animate === "backS3") {
+            gsap.to(containerRef, {
+                opacity: 0,
+                duration: 0.5,
+            });
+        }
+    });
     const [sliderValue, setSliderValue] = useState(5000);
 
     const handleText = (e) => {
@@ -120,7 +146,7 @@ export default function SectionFour({ formData, setFormData }) {
     }, [formData]);
 
     return (
-        <Container>
+        <Container ref={(el) => (containerRef = el)}>
             <section className="extra-section">
                 <h5>
                     Please use the section below to provide us with any extra information,
