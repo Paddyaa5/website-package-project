@@ -13,7 +13,7 @@ const Container = styled.section`
     width: 60vw;
     height: 100%;
     border-radius: 25px;
-    background-color: ${(props) => props.theme.darkest};
+    background-color: ${(props) => props.theme.dark};
 `;
 
 export default function RightColumn({ animate, section, setSection, formData, setFormData }) {
