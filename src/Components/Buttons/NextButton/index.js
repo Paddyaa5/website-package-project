@@ -26,6 +26,8 @@ export default function index({ section, setSection, animate, setAnimate }) {
             setAnimate("toS4");
         } else if (section === 4) {
             setAnimate("toS5");
+        } else if (section === 5) {
+            setAnimate("toS6");
         }
         setTimeout(() => {
             let temp = section + 1;

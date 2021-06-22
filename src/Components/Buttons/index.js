@@ -2,20 +2,12 @@ import React from "react";
 //components
 import NextButton from "./NextButton";
 import PrevButton from "./PreviousButton";
-import StartButton from "./StartButton"
-import SubmitButton from "./SubmitButton"
+import StartButton from "./StartButton";
+import SubmitButton from "./SubmitButton";
 
 export default function index({ section, setSection, animate, setAnimate }) {
     return (
         <>
-            {section === 1 && (
-                <StartButton
-                    animate={animate}
-                    setAnimate={setAnimate}
-                    section={section}
-                    setSection={setSection}
-                />
-            )}
             {section === 2 && (
                 <>
                     <NextButton
@@ -73,11 +65,11 @@ export default function index({ section, setSection, animate, setAnimate }) {
                         setSection={setSection}
                     />
                     <SubmitButton
-                    animate={animate}
-                    setAnimate={setAnimate}
-                    section={section}
-                    setSection={setSection}
-                />
+                        animate={animate}
+                        setAnimate={setAnimate}
+                        section={section}
+                        setSection={setSection}
+                    />
                 </>
             )}
         </>

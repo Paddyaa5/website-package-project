@@ -30,6 +30,7 @@ export default function ProgressText({ animate, section }) {
         ["What website", "are you", "looking for?"],
         ["Lets work", "on the finer", "details!"],
         ["Your", "Package", "Summary"],
+        ["Your", "Perfect", "Package"],
     ];
     const [activeText, setActiveText] = useState(text[section]);
 
@@ -45,6 +46,10 @@ export default function ProgressText({ animate, section }) {
                 duration: 0.5,
                 delay: 0.25,
             });
+        } else if (animate === "toS2") {
+            tl.to(".hide", { y: "-100%", duration: 0.5, delay: 1, stagger: 0.05 })
+                .set(".hide", { y: "100%" })
+                .to(".hide", { y: 0, duration: 0.5, stagger: 0.1 });
         } else {
             tl.to(".hide", { y: "-100%", duration: 0.5, stagger: 0.05 })
                 .set(".hide", { y: "100%" })

@@ -27,7 +27,14 @@ const Container = styled.section`
     }
 `;
 
-export default function LeftColumn({ animate, section, setSection, formData, setFormData }) {
+export default function LeftColumn({
+    animate,
+    setAnimate,
+    section,
+    setSection,
+    formData,
+    setFormData,
+}) {
     let containerRef = useRef(null);
 
     useEffect(() => {
@@ -36,20 +43,24 @@ export default function LeftColumn({ animate, section, setSection, formData, set
                 width: "100%",
                 padding: "40px 60px",
                 duration: 1,
+                ease: "circ.inOut",
+                delay: 0.5,
             });
         } else if (animate === "toS2") {
             gsap.to(containerRef, {
                 width: "30vw",
                 padding: "40px 20px",
                 duration: 1,
+                ease: "circ.inOut",
             });
-        } else if (animate === "toS5") {
+        } else if (animate === "toS6") {
             gsap.to(containerRef, {
                 width: "100%",
                 padding: "40px 60px",
                 duration: 1,
+                delay: 0.5,
             });
-        } else if (animate === "backS4") {
+        } else if (animate === "backS5") {
             gsap.to(containerRef, {
                 width: "30vw",
                 padding: "40px 20px",
@@ -70,7 +81,12 @@ export default function LeftColumn({ animate, section, setSection, formData, set
                 formData={formData}
                 setFormData={setFormData}
             />
-            <StartButton animate={animate} section={section} setSection={setSection} />
+            <StartButton
+                animate={animate}
+                setAnimate={setAnimate}
+                section={section}
+                setSection={setSection}
+            />
         </Container>
     );
 }

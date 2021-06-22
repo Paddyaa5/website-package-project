@@ -38,6 +38,7 @@ const App = () => {
                 <div className="inner-container">
                     <LeftColumn
                         animate={animate}
+                        setAnimate={setAnimate}
                         section={section}
                         setSection={setSection}
                         formData={formData}
