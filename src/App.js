@@ -11,7 +11,8 @@ const AppContainer = styled.div`
     min-height: 400px;
     height: 100vh;
     width: 100vw;
-    padding: 4vw;
+    padding: 3vw;
+    background-image: linear-gradient(to bottom right, #6c757d, #343a40, #212529);
     .inner-container {
         position: relative;
         height: 100%;

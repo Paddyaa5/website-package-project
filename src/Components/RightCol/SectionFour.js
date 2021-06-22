@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 //styles
-import { StyledSection, NeomorphBox } from "../../Styles/CommonStyles";
+import { StyledSection, StyledTextArea } from "../../Styles/CommonStyles";
 
 const Container = styled(StyledSection)`
     section {
@@ -11,25 +11,19 @@ const Container = styled(StyledSection)`
         color: ${(props) => props.theme.light};
         display: flex;
         flex-direction: column;
-        .slider {
-            margin: 20px 0;
-            width: 80%;
-            align-self: center;
-        }
-        .text-area {
-            margin-top: 10px;
-            height: 35px;
-            resize: none;
-        }
         .selections {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             margin-top: 20px;
             .item {
-                height: 80px;
-                width: 120px;
+                height: 100px;
+                width: 100px;
+                border-radius: 25px;
                 label {
                     height: 100%;
+                    padding: 15px 0;
+                    font-weight: 300;
+                    border-radius: 25px;
                     width: 100%;
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
                         -3px -3px 5px rgba(0, 0, 0, 0.35);
@@ -37,7 +31,13 @@ const Container = styled(StyledSection)`
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 10px;
+                    font-size: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    i {
+                        font-size: 22px;
+                    }
                 }
                 input {
                     position: absolute;
@@ -56,6 +56,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
         virtualTours: false,
         photography: false,
         copywriting: false,
+        socialMedia: false,
     });
 
     useEffect(() => {
@@ -64,10 +65,12 @@ export default function SectionFour({ section, setSection, formData, setFormData
     const handleCheckbox = (e) => {
         e.target.checked
             ? gsap.to(`.${e.target.name}`, {
+                  color: "#EE7B00",
                   boxShadow:
                       "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
               })
             : gsap.to(`.${e.target.name}`, {
+                  color: "white",
                   boxShadow:
                       "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
               });
@@ -82,7 +85,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     perferences you have.
                 </h5>
                 <h6>Example website design you like, existing branding of your company, etc.</h6>
-                <textarea type="text" className="text-area" />
+                <StyledTextArea />
             </section>
             <section className="services-section">
                 <h5>Please select any addition MB services you'd like to add to the package.</h5>
@@ -91,6 +94,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     <div className="item">
                         <label htmlFor="logoDesign" className="logoDesign">
                             Logo Design
+                            <i className="fas fa-dragon"></i>
                         </label>
                         <input
                             type="checkbox"
@@ -102,6 +106,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     <div className="item">
                         <label htmlFor="virtualTours" className="virtualTours">
                             Virtual Tours
+                            <i className="far fa-eye"></i>
                         </label>
                         <input
                             type="checkbox"
@@ -113,6 +118,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     <div className="item">
                         <label htmlFor="photography" className="photography">
                             Photography
+                            <i className="fas fa-camera-retro"></i>
                         </label>
                         <input
                             type="checkbox"
@@ -124,6 +130,7 @@ export default function SectionFour({ section, setSection, formData, setFormData
                     <div className="item">
                         <label htmlFor="copywriting" className="copywriting">
                             Copywriting
+                            <i className="fas fa-spell-check"></i>
                         </label>
                         <input
                             type="checkbox"
@@ -132,12 +139,27 @@ export default function SectionFour({ section, setSection, formData, setFormData
                             onChange={handleCheckbox}
                         />
                     </div>
+                    <div className="item">
+                        <label htmlFor="social" className="social">
+                            Social Media
+                            <i className="fab fa-instagram"></i>
+                        </label>
+                        <input
+                            type="checkbox"
+                            name="social"
+                            id="social"
+                            onChange={handleCheckbox}
+                        />
+                    </div>
                 </div>
             </section>
             <section className="budget-section">
                 <h5>Please use the slider to confirm your package budget.</h5>
-                <h6>This should be the based on all features, not just website design.</h6>
-                <input type="range" className="slider" />
+                <div className="slider">
+                    <label></label>
+                </div>
+                <input type="range" name="budget" min="500" max="5000" />
+                <output for="budget" onforminput="value = budget.valueAsNumber" />
             </section>
         </Container>
     );
