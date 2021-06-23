@@ -24,15 +24,15 @@ const Container = styled(StyledSection)`
                     color: ${(props) => props.theme.darkestOrange};
                     box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
                         inset -3px -3px 5px rgba(0, 0, 0, 0.35);
-                    cursor: pointer;
                 }
                 .false {
-                    cursor: pointer;
+                    background: rgba(27, 27, 27, 0.5);
                     color: ${(props) => props.theme.light};
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
                         -3px -3px 5px rgba(0, 0, 0, 0.35);
                 }
                 label {
+                    cursor: pointer;
                     height: 100%;
                     padding: 15px 0;
                     font-weight: 300;
@@ -89,6 +89,7 @@ const Container = styled(StyledSection)`
             .value-box {
                 height: 60px;
                 width: 100px;
+                background: rgba(27, 27, 27, 0.5);
                 box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
                 border-radius: 10px;
                 display: flex;

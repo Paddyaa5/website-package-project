@@ -33,9 +33,6 @@ const Container = styled(StyledSection)`
                     font-weight: 600;
                     border-radius: 25px;
                     width: 100%;
-                    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
-                        -3px -3px 5px rgba(0, 0, 0, 0.35);
-                    width: 100%;
                     font-size: 12px;
                     display: flex;
                     flex-direction: column;
@@ -57,10 +54,8 @@ const Container = styled(StyledSection)`
             display: flex;
             align-items: center;
             justify-content: space-around;
-            width:100%;
-              /* box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);   */
+            width: 100%;
             border-radius: 50px;
-             
             label {
                 display: flex;
                 justify-content: space-around;
@@ -70,18 +65,20 @@ const Container = styled(StyledSection)`
                 cursor: pointer;
                 align-items: center;
                 width: 45%;
-                box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
-                        -3px -3px 5px rgba(0, 0, 0, 0.35);
             }
-
             input[type="radio"] {
                 display: none;
             }
-
-            input[type="radio"]:checked {
-                box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
-                color: #ee7b00;
-            }
+        }
+        .active {
+            color: ${(props) => props.theme.darkestOrange};
+            box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
+                inset -3px -3px 5px rgba(0, 0, 0, 0.35);
+        }
+        .not-active {
+            color: ${(props) => props.theme.light};
+            background: rgba(27, 27, 27, 0.5);
+            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
         }
     }
 `;
@@ -115,107 +112,26 @@ export default function SectionThree({ animate, formData, setFormData }) {
     const handleInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-    const handleCheckbox = (e) => {
-        if (e.target.value === "option1") {
-            gsap.to("#option1", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to(["#option2", "#option3", "#option4", "#option5"], {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        } else if (e.target.value === "option2") {
-            gsap.to("#option2", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to(["#option1", "#option3", "#option4", "#option5"], {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        } else if (e.target.value === "option3") {
-            gsap.to("#option3", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to(["#option1", "#option2", "#option4", "#option5"], {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        } else if (e.target.value === "option4") {
-            gsap.to("#option4", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to(["#option1", "#option2", "#option3", "#option5"], {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        } else if (e.target.value === "option5") {
-            gsap.to("#option5", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to(["#option1", "#option2", "#option3", "#option4"], {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        }
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleOption = (e) => {
-        if (e.target.value === "new") {
-            gsap.to("#new", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to("#upgrade", {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-        } else if (e.target.value === "upgrade") {
-            gsap.to("#upgrade", {
-                color: "#EE7B00",
-                boxShadow:
-                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            gsap.to("#new", {
-                color: "white",
-                boxShadow:
-                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-            });
-            
-        }
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
 
     useEffect(() => {
         console.log(formData);
     });
+
     return (
         <Container ref={(el) => (containerRef = el)}>
             <section className="looking-for">
                 <h5>Are you looking to....</h5>
                 <div className="lookingForSelection">
-                <label id="new">Launch a new website
-                    <input type="radio" name="need" value="new" onChange={handleOption} />
+                    <label id="new" className={formData.need === "new" ? "active" : "not-active"}>
+                        Launch a new website
+                        <input type="radio" name="need" value="new" onChange={handleInput} />
                     </label>
-                    <label id="upgrade"> Upgrade an existing website
-                    <input type="radio" name="need" value="upgrade" onChange={handleOption} />
+                    <label
+                        id="upgrade"
+                        className={formData.need === "upgrade" ? "active" : "not-active"}
+                    >
+                        Upgrade an existing website
+                        <input type="radio" name="need" value="upgrade" onChange={handleInput} />
                     </label>
                 </div>
             </section>
@@ -234,56 +150,71 @@ export default function SectionThree({ animate, formData, setFormData }) {
                 <h6>Example webpages are; Homepage, About, Services, Contact, etc.</h6>
                 <div className="selections">
                     <div className="radio">
-                        <label id="option1">
+                        <label
+                            id="option1"
+                            className={formData.pages === "option1" ? "active" : "not-active"}
+                        >
                             <input
                                 type="radio"
                                 value="option1"
                                 name="pages"
-                                onChange={handleCheckbox}
+                                onChange={handleInput}
                             />
                             0-3
                         </label>
                     </div>
                     <div className="radio">
-                        <label id="option2">
+                        <label
+                            id="option2"
+                            className={formData.pages === "option2" ? "active" : "not-active"}
+                        >
                             <input
                                 type="radio"
                                 value="option2"
                                 name="pages"
-                                onChange={handleCheckbox}
+                                onChange={handleInput}
                             />
                             3-5
                         </label>
                     </div>
                     <div className="radio">
-                        <label id="option3">
+                        <label
+                            id="option3"
+                            className={formData.pages === "option3" ? "active" : "not-active"}
+                        >
                             <input
                                 type="radio"
                                 value="option3"
                                 name="pages"
-                                onChange={handleCheckbox}
+                                onChange={handleInput}
                             />
                             5-7
                         </label>
                     </div>
                     <div className="radio">
-                        <label id="option4">
+                        <label
+                            id="option4"
+                            className={formData.pages === "option4" ? "active" : "not-active"}
+                        >
                             <input
                                 type="radio"
                                 value="option4"
                                 name="pages"
-                                onChange={handleCheckbox}
+                                onChange={handleInput}
                             />
                             7-10+
                         </label>
                     </div>
                     <div className="radio">
-                        <label id="option5">
+                        <label
+                            id="option5"
+                            className={formData.pages === "option5" ? "active" : "not-active"}
+                        >
                             <input
                                 type="radio"
                                 value="option5"
                                 name="pages"
-                                onChange={handleCheckbox}
+                                onChange={handleInput}
                             />
                             Unsure
                         </label>
@@ -293,4 +224,3 @@ export default function SectionThree({ animate, formData, setFormData }) {
         </Container>
     );
 }
-    

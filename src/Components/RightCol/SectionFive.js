@@ -9,7 +9,7 @@ const Container = styled(StyledSection)`
     color: white;
 `;
 
-export default function SectionFive({ animate, formData, setFormData }) {
+export default function SectionFive({ animate, formData }) {
     let containerRef = useRef(null);
     useEffect(() => {
         if (animate === "toS5") {
@@ -39,6 +39,22 @@ export default function SectionFive({ animate, formData, setFormData }) {
     return (
         <Container ref={(el) => (containerRef = el)}>
             <h3>Before you submit the form, please check the details below..</h3>
+            <div>
+                <h2>Contact Details:</h2>
+                <p>Name: {formData.fullname}</p>
+                <p>Email: {formData.email}</p>
+                <p>Contact: {formData.telephone}</p>
+            </div>
+            <div>
+                <h2>Website Specification:</h2>
+                <p>{formData.need === "new" ? "A new website" : "Upgrade on existing website"}</p>
+                <p>
+                    A {formData.purpose} website,{" "}
+                    {formData.pages === "unsure"
+                        ? "unsure on how many webpages"
+                        : `with ${formData.pages} webpages`}
+                </p>
+            </div>
         </Container>
     );
 }
