@@ -27,7 +27,7 @@ const App = () => {
         fullname: "",
         email: "",
         telephone: "",
-        owner: "",
+        owner: "Yes",
         description: "",
         need: "",
         purpose: "",
@@ -36,7 +36,7 @@ const App = () => {
         logoDesign: false,
         virtualTours: false,
         photography: false,
-        copywriting: true,
+        copywriting: false,
         social: false,
         budget: 1500,
     });
