@@ -20,10 +20,21 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 5px 15px 35px 1px #000000;
+    a{
+        width:75px;
+    }
     .logo {
         height: 75px;
         width: 75px;
         object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.8s;
+         &:hover {
+           filter: brightness(120%);
+           transform: scale(1.3)
+           }
+          
+         
     }
 `;
 
@@ -71,7 +82,8 @@ export default function LeftColumn({
 
     return (
         <Container ref={(el) => (containerRef = el)}>
-            <img src={logo} alt="Morgan-Branding-Logo" className="logo" />
+            <a href="https://www.morganbranding.co.uk/" target="_blank">
+            <img src={logo} alt="Morgan-Branding-Logo" className="logo" /></a>
             <ProgressNumber animate={animate} section={section} />
             <ProgressText animate={animate} section={section} />
             <ProgressBar

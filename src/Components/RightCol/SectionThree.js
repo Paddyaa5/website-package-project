@@ -13,11 +13,12 @@ const Container = styled(StyledSection)`
             width: 100%;
             background-color: ${(props) => props.theme.dark};
             color: ${(props) => props.theme.darkestOrange};
-            height: 5vh;
+            height: 50px;
             outline: none;
             border-radius: 8px;
-            margin: 4px 0;
+            margin-top: 10px;
             padding: 12px 10px;
+            
         }
         .selections {
             display: flex;
@@ -33,12 +34,9 @@ const Container = styled(StyledSection)`
                     font-weight: 400;
                     border-radius: 25px;
                     width: 100%;
-
-                    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
-                        -3px -3px 5px rgba(0, 0, 0, 0.35);
                     width: 100%;
                     font-size: 14px;
-                    background-color: #212529;
+                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -64,10 +62,9 @@ const Container = styled(StyledSection)`
             label {
                 display: flex;
                 justify-content: space-around;
-                background-color: #212529;
                 padding: 10px;
                 font-size: 14px;
-                height: 5vh;
+                height: 70px;
                 border-radius: 35px;
                 cursor: pointer;
                 align-items: center;
@@ -86,6 +83,7 @@ const Container = styled(StyledSection)`
             color: ${(props) => props.theme.light};
             background: rgba(27, 27, 27, 0.5);
             box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
+            background-color: #212529;
         }
         
 
@@ -155,10 +153,10 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <option value="advertising">Advertising your Company/Services</option>
                     <option value="landing">Landing Pages</option>
                     <option value="blog">Blog</option>
-                    <option value="notSure">Still Unsure (We can help you with that!)</option>
+                    <option value="notSure">Still unsure (We can help you with that!)</option>
                 </select>
             </section>
-            <section className="services-section">
+            <section className="pages-section">
                 <h5>Ideally, how many pages would you like your site to have?</h5>
                 <h6>Example webpages are; Homepage, About, Services, Contact, etc.</h6>
                 <div className="selections">
@@ -227,6 +225,70 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 type="radio"
                                 value="option5"
                                 name="pages"
+                                onChange={handleInput}
+                            />
+                            Unsure
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <section className="time-section">
+                <h5>When would you be hoping to get you website completed?</h5>
+                <h6>This is just an estimate and we can work on this with you in more detail if needed.</h6>
+                <div className="selections">
+                    <div className="radio">
+                        <label
+                            id="opn1"
+                            className={formData.time === "opn1" ? "active" : "not-active"}
+                        >
+                            <input
+                                type="radio"
+                                value="opn1"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            0-3 months
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label
+                            id="opn2"
+                            className={formData.time === "opn2" ? "active" : "not-active"}
+                        >
+                            <input
+                                type="radio"
+                                value="opn2"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            3-6 months
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label
+                            id="opn3"
+                            className={formData.time === "opn3" ? "active" : "not-active"}
+                        >
+                            <input
+                                type="radio"
+                                value="opn3"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            6+ months
+                        </label>
+                    </div>
+                    
+                    <div className="radio">
+                        <label
+                            id="opn5"
+                            className={formData.time === "opn5" ? "active" : "not-active"}
+                        >
+                            <input
+                                type="radio"
+                                value="opn5"
+                                name="time"
                                 onChange={handleInput}
                             />
                             Unsure

@@ -63,7 +63,7 @@ export const StyledTextArea = styled.textarea`
     width: 50%;
     background: none;
     color: ${(props) => props.theme.darkestOrange};
-    height: 40px;
+    height: 45px;
     transition: width 0.5s ease-in-out;
     margin: 4px 0;
     padding: 12px 10px;
@@ -72,6 +72,8 @@ export const StyledTextArea = styled.textarea`
     }
     &:focus {
         width: 100%;
+        height:10vh;
+        transition: height 1s, width 1s ease-in-out;
         border: 1px solid ${(props) => props.theme.darkestOrange};
     }
 `;
