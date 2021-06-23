@@ -228,14 +228,17 @@ export default function SectionFour({ animate, formData, setFormData }) {
                         type="range"
                         name="budget"
                         min={0}
-                        max={10000}
-                        step={10}
+                        max={3000}
+                        step={50}
                         className="slider"
                         value={sliderValue}
                         onChange={handleSlider}
                     />
                     <div className="value-box">
-                        <h3>£{sliderValue}</h3>
+                    <h3>
+                        {sliderValue == 3000 && `£${sliderValue}+`}
+                        {sliderValue != 3000 && `£${sliderValue}`}
+                    </h3>
                     </div>
                 </div>
             </section>
