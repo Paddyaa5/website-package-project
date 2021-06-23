@@ -221,7 +221,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
             </section>
             <section className="website-use">
                 <h5>What will be the main purpose of your website?</h5>
-                <select name="purpose" onChange={handleInput}>
+                <select name="purpose" onChange={handleInput} value={formData.purpose}>
                     <option value="e-commerce">E-Commerce</option>
                     <option value="advertising">Advertising your Company/Services</option>
                     <option value="landing">Landing Pages</option>

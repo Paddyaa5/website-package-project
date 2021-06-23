@@ -59,6 +59,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                     type="text"
                     className="name"
                     id="name"
+                    value={formData.fullname}
                     name="fullname"
                     onChange={handleInput}
                 />
@@ -69,6 +70,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                 <StyledTextInput
                     type="text"
                     className="email"
+                    value={formData.email}
                     name="email"
                     onChange={handleInput}
                 />
@@ -79,13 +81,14 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                 <StyledTextInput
                     type="text"
                     className="number"
+                    value={formData.telephone}
                     name="telephone"
                     onChange={handleInput}
                 />
             </section>
             <section className="business-owner">
                 <h5>Are you the business owner?</h5>
-                <select name="Y/N" name="owner" onChange={handleInput}>
+                <select name="Y/N" name="owner" value={formData.owner} onChange={handleInput}>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                     <option value="n/a">n/a</option>
@@ -98,6 +101,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                     className="type"
                     name="description"
                     onChange={handleInput}
+                    value={formData.description}
                 />
             </section>
         </Container>
