@@ -42,8 +42,8 @@ export const StyledTextInput = styled.input`
     width: 50%;
     background: none;
     color: ${(props) => props.theme.darkestOrange};
-    height: 40px;
-    transition: width 0.5s ease-in-out;
+    height: 5vh;
+    transition: height 0.6s, width 0.8s ease-in-out;
     margin: 4px 0;
     padding: 12px 10px;
     &:hover {
@@ -51,6 +51,7 @@ export const StyledTextInput = styled.input`
     }
     &:focus {
         width: 100%;
+        height: 6vh;
         border: 1px solid ${(props) => props.theme.darkestOrange};
     }
 `;
