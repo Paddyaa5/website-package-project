@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 //styles
-import { StyledSection, StyledTextInput } from "../../Styles/CommonStyles";
+import { StyledSection, StyledTextInput, StyledTextArea } from "../../Styles/CommonStyles";
 
 const Container = styled(StyledSection)`
     opacity: 0;
@@ -14,7 +14,7 @@ const Container = styled(StyledSection)`
             width: 15%;
             background-color: ${(props) => props.theme.darkest};
             color: ${(props) => props.theme.darkestOrange};
-            height: 5vh;
+            height: 50px;
             outline: none;
             border-radius: 8px;
             margin: 4px 0;
@@ -24,7 +24,7 @@ const Container = styled(StyledSection)`
         input.type {
             &:focus {
         height:10vh;
-        transition: height 0.7s, width 1s ease-in-out;
+        transition: height 1s, width 1s ease-in-out;
         
             }
         }
@@ -103,8 +103,8 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                 </select>
             </section>
             <section className="business-type">
-                <h5>Being as brief as you like, please describe the type of business</h5>
-                <StyledTextInput
+                <h5>Being as brief (or detailed) as you like, please describe the type of business</h5>
+                <StyledTextArea
                     type="text"
                     className="type"
                     name="description"
