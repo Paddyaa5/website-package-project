@@ -30,7 +30,7 @@ const Container = styled(StyledSection)`
                 label {
                     height: 100%;
                     padding: 15px 0;
-                    font-weight: 300;
+                    font-weight: 600;
                     border-radius: 25px;
                     width: 100%;
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
@@ -51,20 +51,37 @@ const Container = styled(StyledSection)`
                 }
             }
         }
+
         .lookingForSelection {
+            margin-top: 20px;
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 6vh;
-            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
+            width:100%;
+              /* box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);   */
             border-radius: 50px;
-            padding: 0 20px;
-        }
-        label {
-            padding: 10px;
-            height: 5vh;
-            border-radius: 40px;
-            cursor: pointer;
+             
+            label {
+                display: flex;
+                justify-content: space-around;
+                padding: 10px;
+                height: 6vh;
+                border-radius: 35px;
+                cursor: pointer;
+                align-items: center;
+                width: 45%;
+                box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
+                        -3px -3px 5px rgba(0, 0, 0, 0.35);
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked {
+                box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
+                color: #ee7b00;
+            }
         }
     }
 `;
@@ -157,6 +174,35 @@ export default function SectionThree({ animate, formData, setFormData }) {
         }
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+
+    const handleOption = (e) => {
+        if (e.target.value === "new") {
+            gsap.to("#new", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to("#upgrade", {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        } else if (e.target.value === "upgrade") {
+            gsap.to("#upgrade", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to("#new", {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            
+        }
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+
     useEffect(() => {
         console.log(formData);
     });
@@ -165,10 +211,12 @@ export default function SectionThree({ animate, formData, setFormData }) {
             <section className="looking-for">
                 <h5>Are you looking to....</h5>
                 <div className="lookingForSelection">
-                    <label htmlFor="new">Launch a new website</label>
-                    <input type="radio" name="new" id="new" />
-                    <label htmlFor="upgrade">Upgrade an existing website</label>
-                    <input type="radio" name="upgrade" id="upgrade" />
+                <label id="new">Launch a new website
+                    <input type="radio" name="need" value="new" onChange={handleOption} />
+                    </label>
+                    <label id="upgrade"> Upgrade an existing website
+                    <input type="radio" name="need" value="upgrade" onChange={handleOption} />
+                    </label>
                 </div>
             </section>
             <section className="website-use">
@@ -193,7 +241,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 name="pages"
                                 onChange={handleCheckbox}
                             />
-                            Option 1
+                            0-3
                         </label>
                     </div>
                     <div className="radio">
@@ -204,7 +252,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 name="pages"
                                 onChange={handleCheckbox}
                             />
-                            Option 2
+                            3-5
                         </label>
                     </div>
                     <div className="radio">
@@ -215,7 +263,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 name="pages"
                                 onChange={handleCheckbox}
                             />
-                            Option 3
+                            5-7
                         </label>
                     </div>
                     <div className="radio">
@@ -226,7 +274,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 name="pages"
                                 onChange={handleCheckbox}
                             />
-                            Option 4
+                            7-10+
                         </label>
                     </div>
                     <div className="radio">
@@ -237,7 +285,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                                 name="pages"
                                 onChange={handleCheckbox}
                             />
-                            Option 5
+                            Unsure
                         </label>
                     </div>
                 </div>
@@ -245,3 +293,4 @@ export default function SectionThree({ animate, formData, setFormData }) {
         </Container>
     );
 }
+    
