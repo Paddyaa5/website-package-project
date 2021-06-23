@@ -12,13 +12,21 @@ const Container = styled(StyledSection)`
         flex-direction: column;
         select {
             width: 15%;
-            background-color: ${(props) => props.theme.lightGray};
+            background-color: ${(props) => props.theme.darkest};
             color: ${(props) => props.theme.darkestOrange};
-            height: 40px;
+            height: 5vh;
             outline: none;
             border-radius: 8px;
             margin: 4px 0;
             padding: 12px 10px;
+        }
+
+        input.type {
+            &:focus {
+        height:10vh;
+        transition: height 0.7s, width 1s ease-in-out;
+        
+            }
         }
     }
 `;
