@@ -47,6 +47,9 @@ export default function SectionTwo({ animate, formData, setFormData }) {
             });
         }
     });
+    useEffect(() => {
+        console.log(formData);
+    });
 
     return (
         <Container ref={(el) => (containerRef = el)}>

@@ -31,7 +31,7 @@ export const StyledSection = styled.section`
     }
     h6 {
         color: ${(props) => props.theme.lightestGray};
-        font-size: calc(6px + 0.4vw);
+        font-size: calc(8px + 0.4vw);
     }
 `;
 
