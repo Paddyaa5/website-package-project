@@ -23,7 +23,23 @@ const AppContainer = styled.div`
 const App = () => {
     const [animate, setAnimate] = useState(0);
     const [section, setSection] = useState(0);
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        fullname: "",
+        email: "",
+        telephone: "",
+        owner: "",
+        description: "",
+        need: "",
+        purpose: "",
+        pages: "",
+        designInfo: "",
+        logoDesign: false,
+        virtualTours: false,
+        photography: false,
+        copywriting: true,
+        social: false,
+        budget: 1500,
+    });
 
     useEffect(() => {
         setTimeout(() => {

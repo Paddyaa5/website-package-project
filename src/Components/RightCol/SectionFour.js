@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 //styles
@@ -20,22 +20,30 @@ const Container = styled(StyledSection)`
                 height: 100px;
                 width: 100px;
                 border-radius: 25px;
+                .true {
+                    color: ${(props) => props.theme.darkestOrange};
+                    box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
+                        inset -3px -3px 5px rgba(0, 0, 0, 0.35);
+                    cursor: pointer;
+                }
+                .false {
+                    cursor: pointer;
+                    color: ${(props) => props.theme.light};
+                    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
+                        -3px -3px 5px rgba(0, 0, 0, 0.35);
+                }
                 label {
                     height: 100%;
                     padding: 15px 0;
                     font-weight: 300;
                     border-radius: 25px;
                     width: 100%;
-                    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
-                        -3px -3px 5px rgba(0, 0, 0, 0.35);
                     width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 12px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
+                    align-items: center;
+                    font-size: 12px;
                     i {
                         font-size: 22px;
                     }
@@ -117,33 +125,16 @@ export default function SectionFour({ animate, formData, setFormData }) {
             });
         }
     });
-    const [sliderValue, setSliderValue] = useState(5000);
-
-    const handleText = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-    const handleSlider = (e) => {
-        setSliderValue(e.target.value);
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-    const handleCheckbox = (e) => {
-        e.target.checked
-            ? gsap.to(`.${e.target.name}`, {
-                  color: "#EE7B00",
-                  boxShadow:
-                      "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-              })
-            : gsap.to(`.${e.target.name}`, {
-                  color: "white",
-                  boxShadow:
-                      "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-              });
-        setFormData({ ...formData, [e.target.name]: e.target.checked });
-    };
-
     useEffect(() => {
         console.log(formData);
     }, [formData]);
+
+    const handleInput = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const handleCheckbox = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.checked });
+    };
 
     return (
         <Container ref={(el) => (containerRef = el)}>
@@ -153,14 +144,18 @@ export default function SectionFour({ animate, formData, setFormData }) {
                     perferences you have.
                 </h5>
                 <h6>Example website design you like, existing branding of your company, etc.</h6>
-                <StyledTextArea name="design-info" onChange={handleText} />
+                <StyledTextArea
+                    name="designInfo"
+                    value={formData.designInfo}
+                    onChange={handleInput}
+                />
             </section>
             <section className="services-section">
                 <h5>Please select any addition MB services you'd like to add to the package.</h5>
                 <h6>The cost of each will be broken down in your package summary.</h6>
                 <div className="selections">
                     <div className="item">
-                        <label htmlFor="logoDesign" className="logoDesign">
+                        <label htmlFor="logoDesign" className={formData.logoDesign.toString()}>
                             Logo Design
                             <i className="fas fa-dragon"></i>
                         </label>
@@ -169,10 +164,11 @@ export default function SectionFour({ animate, formData, setFormData }) {
                             name="logoDesign"
                             id="logoDesign"
                             onChange={handleCheckbox}
+                            checked={formData.logoDesign}
                         />
                     </div>
                     <div className="item">
-                        <label htmlFor="virtualTours" className="virtualTours">
+                        <label htmlFor="virtualTours" className={formData.virtualTours.toString()}>
                             Virtual Tours
                             <i className="far fa-eye"></i>
                         </label>
@@ -181,10 +177,11 @@ export default function SectionFour({ animate, formData, setFormData }) {
                             name="virtualTours"
                             id="virtualTours"
                             onChange={handleCheckbox}
+                            checked={formData.virtualTours}
                         />
                     </div>
                     <div className="item">
-                        <label htmlFor="photography" className="photography">
+                        <label htmlFor="photography" className={formData.photography.toString()}>
                             Photography
                             <i className="fas fa-camera-retro"></i>
                         </label>
@@ -193,10 +190,11 @@ export default function SectionFour({ animate, formData, setFormData }) {
                             name="photography"
                             id="photography"
                             onChange={handleCheckbox}
+                            checked={formData.photography}
                         />
                     </div>
                     <div className="item">
-                        <label htmlFor="copywriting" className="copywriting">
+                        <label htmlFor="copywriting" className={formData.copywriting.toString()}>
                             Copywriting
                             <i className="fas fa-spell-check"></i>
                         </label>
@@ -205,10 +203,11 @@ export default function SectionFour({ animate, formData, setFormData }) {
                             name="copywriting"
                             id="copywriting"
                             onChange={handleCheckbox}
+                            checked={formData.copywriting}
                         />
                     </div>
                     <div className="item">
-                        <label htmlFor="social" className="social">
+                        <label htmlFor="social" className={formData.social.toString()}>
                             Social Media
                             <i className="fab fa-instagram"></i>
                         </label>
@@ -217,6 +216,7 @@ export default function SectionFour({ animate, formData, setFormData }) {
                             name="social"
                             id="social"
                             onChange={handleCheckbox}
+                            checked={formData.social}
                         />
                     </div>
                 </div>
@@ -228,14 +228,17 @@ export default function SectionFour({ animate, formData, setFormData }) {
                         type="range"
                         name="budget"
                         min={0}
-                        max={10000}
-                        step={10}
+                        max={3000}
+                        step={50}
                         className="slider"
-                        value={sliderValue}
-                        onChange={handleSlider}
+                        value={parseInt(formData.budget)}
+                        onChange={handleInput}
                     />
                     <div className="value-box">
-                        <h3>£{sliderValue}</h3>
+                        <h3>
+                            {formData.budget == 3000 && `£${formData.budget}+`}
+                            {formData.budget != 3000 && `£${formData.budget}`}
+                        </h3>
                     </div>
                 </div>
             </section>
