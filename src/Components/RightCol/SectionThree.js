@@ -11,9 +11,9 @@ const Container = styled(StyledSection)`
         flex-direction: column;
         select {
             width: 100%;
-            background-color: ${(props) => props.theme.darkest};
+            background-color: ${(props) => props.theme.dark};
             color: ${(props) => props.theme.darkestOrange};
-            height: 40px;
+            height: 5vh;
             outline: none;
             border-radius: 8px;
             margin: 4px 0;
@@ -24,16 +24,21 @@ const Container = styled(StyledSection)`
             justify-content: space-between;
             margin-top: 20px;
             .radio {
-                height: 100px;
-                width: 100px;
+                height: 5vh;
+                width: 8vw;
                 border-radius: 25px;
                 label {
                     height: 100%;
                     padding: 15px 0;
-                    font-weight: 600;
+                    font-weight: 400;
                     border-radius: 25px;
                     width: 100%;
-                    font-size: 12px;
+
+                    box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
+                        -3px -3px 5px rgba(0, 0, 0, 0.35);
+                    width: 100%;
+                    font-size: 14px;
+                    background-color: #212529;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -59,8 +64,10 @@ const Container = styled(StyledSection)`
             label {
                 display: flex;
                 justify-content: space-around;
+                background-color: #212529;
                 padding: 10px;
-                height: 6vh;
+                font-size: 14px;
+                height: 5vh;
                 border-radius: 35px;
                 cursor: pointer;
                 align-items: center;
@@ -80,7 +87,11 @@ const Container = styled(StyledSection)`
             background: rgba(27, 27, 27, 0.5);
             box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
         }
-    }
+        
+
+        }
+    
+    
 `;
 
 export default function SectionThree({ animate, formData, setFormData }) {
@@ -113,6 +124,8 @@ export default function SectionThree({ animate, formData, setFormData }) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+ 
+
     useEffect(() => {
         console.log(formData);
     });
@@ -142,7 +155,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <option value="advertising">Advertising your Company/Services</option>
                     <option value="landing">Landing Pages</option>
                     <option value="blog">Blog</option>
-                    <option value="notSure">Still Unsure (we can help you with that)</option>
+                    <option value="notSure">Still Unsure (We can help you with that!)</option>
                 </select>
             </section>
             <section className="services-section">
@@ -221,6 +234,9 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     </div>
                 </div>
             </section>
+            
+
         </Container>
     );
 }
+
