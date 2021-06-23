@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { StyledSection, StyledTextArea } from "../../Styles/CommonStyles";
+import { StyledSection } from "../../Styles/CommonStyles";
 import gsap from "gsap";
 
 const Container = styled(StyledSection)`
@@ -23,7 +23,7 @@ const Container = styled(StyledSection)`
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
-            .item {
+            .radio {
                 height: 100px;
                 width: 100px;
                 border-radius: 25px;
@@ -36,21 +36,17 @@ const Container = styled(StyledSection)`
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
                         -3px -3px 5px rgba(0, 0, 0, 0.35);
                     width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     font-size: 12px;
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     justify-content: space-evenly;
-                    i {
-                        font-size: 22px;
-                    }
+                    cursor: pointer;
                 }
                 input {
                     position: absolute;
+                    display: none;
                     z-index: 1;
-                    right: 0;
                     opacity: 0;
                 }
             }
@@ -64,20 +60,11 @@ const Container = styled(StyledSection)`
             border-radius: 50px;
             padding: 0 20px;
         }
-
-        input[type="radio"] {
-            display: none;
-        }
         label {
             padding: 10px;
             height: 5vh;
             border-radius: 40px;
-        }
-
-        input[type="radio"] checked + label {
-            box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
-                inset -3px -3px 5px rgba(0, 0, 0, 0.35);
-            color: #ee7b00;
+            cursor: pointer;
         }
     }
 `;
@@ -111,21 +98,68 @@ export default function SectionThree({ animate, formData, setFormData }) {
     const handleInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
     const handleCheckbox = (e) => {
-        e.target.checked
-            ? gsap.to(`.${e.target.name}`, {
-                  color: "#EE7B00",
-                  boxShadow:
-                      "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
-              })
-            : gsap.to(`.${e.target.name}`, {
-                  color: "white",
-                  boxShadow:
-                      "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
-              });
-        setFormData({ ...formData, [e.target.name]: e.target.checked });
+        if (e.target.value === "option1") {
+            gsap.to("#option1", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to(["#option2", "#option3", "#option4", "#option5"], {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        } else if (e.target.value === "option2") {
+            gsap.to("#option2", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to(["#option1", "#option3", "#option4", "#option5"], {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        } else if (e.target.value === "option3") {
+            gsap.to("#option3", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to(["#option1", "#option2", "#option4", "#option5"], {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        } else if (e.target.value === "option4") {
+            gsap.to("#option4", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to(["#option1", "#option2", "#option3", "#option5"], {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        } else if (e.target.value === "option5") {
+            gsap.to("#option5", {
+                color: "#EE7B00",
+                boxShadow:
+                    "inset 3px 3px 5px rgba(255, 255, 255, 0.15), inset -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+            gsap.to(["#option1", "#option2", "#option3", "#option4"], {
+                color: "white",
+                boxShadow:
+                    "3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35)",
+            });
+        }
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+    useEffect(() => {
+        console.log(formData);
+    });
     return (
         <Container ref={(el) => (containerRef = el)}>
             <section className="looking-for">
@@ -137,7 +171,6 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <input type="radio" name="upgrade" id="upgrade" />
                 </div>
             </section>
-
             <section className="website-use">
                 <h5>What will be the main purpose of your website?</h5>
                 <select name="purpose" onChange={handleInput}>
@@ -148,45 +181,64 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <option value="notSure">Still Unsure (we can help you with that)</option>
                 </select>
             </section>
-
             <section className="services-section">
                 <h5>Ideally, how many pages would you like your site to have?</h5>
-
+                <h6>Example webpages are; Homepage, About, Services, Contact, etc.</h6>
                 <div className="selections">
-                    <div className="item">
-                        <label htmlFor="0-3" className="0-3">
-                            0 - 3
+                    <div className="radio">
+                        <label id="option1">
+                            <input
+                                type="radio"
+                                value="option1"
+                                name="pages"
+                                onChange={handleCheckbox}
+                            />
+                            Option 1
                         </label>
-                        <input type="checkbox" name="0-3" id="0-3" onChange={handleCheckbox} />
                     </div>
-                    <div className="item">
-                        <label htmlFor="3-5" className="3-5">
-                            3 - 5
+                    <div className="radio">
+                        <label id="option2">
+                            <input
+                                type="radio"
+                                value="option2"
+                                name="pages"
+                                onChange={handleCheckbox}
+                            />
+                            Option 2
                         </label>
-                        <input type="checkbox" name="3-5" id="3-5" onChange={handleCheckbox} />
                     </div>
-                    <div className="item">
-                        <label htmlFor="5-7" className="5-7">
-                            5 - 7
+                    <div className="radio">
+                        <label id="option3">
+                            <input
+                                type="radio"
+                                value="option3"
+                                name="pages"
+                                onChange={handleCheckbox}
+                            />
+                            Option 3
                         </label>
-                        <input type="checkbox" name="5-7" id="5-7" onChange={handleCheckbox} />
                     </div>
-                    <div className="item">
-                        <label htmlFor="7-10" className="7-10">
-                            7 - 10 +
+                    <div className="radio">
+                        <label id="option4">
+                            <input
+                                type="radio"
+                                value="option4"
+                                name="pages"
+                                onChange={handleCheckbox}
+                            />
+                            Option 4
                         </label>
-                        <input type="checkbox" name="7-10" id="7-10" onChange={handleCheckbox} />
                     </div>
-                    <div className="item">
-                        <label htmlFor="unsure" className="unsure">
-                            Unsure
+                    <div className="radio">
+                        <label id="option5">
+                            <input
+                                type="radio"
+                                value="option5"
+                                name="pages"
+                                onChange={handleCheckbox}
+                            />
+                            Option 5
                         </label>
-                        <input
-                            type="checkbox"
-                            name="unsure"
-                            id="unsure"
-                            onChange={handleCheckbox}
-                        />
                     </div>
                 </div>
             </section>
