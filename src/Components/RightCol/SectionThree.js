@@ -142,10 +142,11 @@ export default function SectionThree({ animate, formData, setFormData }) {
                 <h5>What will be the main purpose of your website?</h5>
                 <select name="purpose" onChange={handleInput} value={formData.purpose}>
                     <option value="e-commerce">E-Commerce</option>
-                    <option value="advertising">Advertising your Company/Services</option>
-                    <option value="landing">Landing Pages</option>
+                    <option value="brochure">Brochure</option>
+                    <option value="booking management">Booking Management</option>
+                    <option value="landing">Landing Page</option>
                     <option value="blog">Blog</option>
-                    <option value="notSure">Still unsure (We can help you with that!)</option>
+                    <option value="unsure">Still unsure (We can help you with that!)</option>
                 </select>
             </section>
             <section className="pages-section">
@@ -155,67 +156,47 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <div className="radio">
                         <label
                             id="option1"
-                            className={formData.pages === "option1" ? "active" : "not-active"}
+                            className={formData.pages === "0-3" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="option1"
-                                name="pages"
-                                onChange={handleInput}
-                            />
+                            <input type="radio" value="0-3" name="pages" onChange={handleInput} />
                             0-3
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="option2"
-                            className={formData.pages === "option2" ? "active" : "not-active"}
+                            className={formData.pages === "4-5" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="option2"
-                                name="pages"
-                                onChange={handleInput}
-                            />
-                            3-5
+                            <input type="radio" value="4-5" name="pages" onChange={handleInput} />
+                            4-5
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="option3"
-                            className={formData.pages === "option3" ? "active" : "not-active"}
+                            className={formData.pages === "6-7" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="option3"
-                                name="pages"
-                                onChange={handleInput}
-                            />
-                            5-7
+                            <input type="radio" value="6-7" name="pages" onChange={handleInput} />
+                            6-7
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="option4"
-                            className={formData.pages === "option4" ? "active" : "not-active"}
+                            className={formData.pages === "8+" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="option4"
-                                name="pages"
-                                onChange={handleInput}
-                            />
-                            7-10+
+                            <input type="radio" value="8+" name="pages" onChange={handleInput} />
+                            8+
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="option5"
-                            className={formData.pages === "option5" ? "active" : "not-active"}
+                            className={formData.pages === "unsure" ? "active" : "not-active"}
                         >
                             <input
                                 type="radio"
-                                value="option5"
+                                value="unsure"
                                 name="pages"
                                 onChange={handleInput}
                             />
@@ -234,37 +215,52 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     <div className="radio">
                         <label
                             id="opn1"
-                            className={formData.time === "opn1" ? "active" : "not-active"}
+                            className={formData.time === "1 month" ? "active" : "not-active"}
                         >
-                            <input type="radio" value="opn1" name="time" onChange={handleInput} />
-                            0-3 months
+                            <input
+                                type="radio"
+                                value="1 month"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            1 month
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="opn2"
-                            className={formData.time === "opn2" ? "active" : "not-active"}
+                            className={formData.time === "1-3 months" ? "active" : "not-active"}
                         >
-                            <input type="radio" value="opn2" name="time" onChange={handleInput} />
-                            3-6 months
+                            <input
+                                type="radio"
+                                value="1-3 months"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            1-3 months
                         </label>
                     </div>
                     <div className="radio">
                         <label
                             id="opn3"
-                            className={formData.time === "opn3" ? "active" : "not-active"}
+                            className={formData.time === "3-6 months" ? "active" : "not-active"}
                         >
-                            <input type="radio" value="opn3" name="time" onChange={handleInput} />
-                            6+ months
+                            <input
+                                type="radio"
+                                value="3-6 months"
+                                name="time"
+                                onChange={handleInput}
+                            />
+                            3-6 months
                         </label>
                     </div>
 
                     <div className="radio">
                         <label
                             id="opn5"
-                            className={formData.time === "opn5" ? "active" : "not-active"}
+                            className={formData.time === "unsure" ? "active" : "not-active"}
                         >
-                            <input type="radio" value="opn5" name="time" onChange={handleInput} />
+                            <input type="radio" value="unsure" name="time" onChange={handleInput} />
                             Unsure
                         </label>
                     </div>
