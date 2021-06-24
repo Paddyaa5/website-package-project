@@ -6,7 +6,51 @@ import { StyledSection } from "../../Styles/CommonStyles";
 
 const Container = styled(StyledSection)`
     opacity: 0;
-    color: white;
+    color: ${(props) => props.theme.light};
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px 1fr 0.8fr;
+    gap: 10px 10px;
+    grid-template-areas:
+        "header header"
+        "user website"
+        "extra extra";
+    .header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+    }
+    .user-section {
+        grid-area: user;
+    }
+    .website-section {
+        grid-area: website;
+    }
+    .extra-section {
+        grid-area: extra;
+        .extra-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            height: 50%;
+            .extra-add {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                i {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    h2 {
+        margin: 15px 0;
+        color: ${(props) => props.theme.darkestOrange};
+    }
+    p {
+        margin: 5px 0;
+    }
 `;
 
 export default function SectionFive({ animate, formData }) {
@@ -38,14 +82,20 @@ export default function SectionFive({ animate, formData }) {
 
     return (
         <Container ref={(el) => (containerRef = el)}>
-            <h3>Before you submit the form, please check the details below..</h3>
-            <div>
+            <div className="header">
+                <h1>
+                    Almost done.. Before you submit the form, please check the package details
+                    below.
+                </h1>
+            </div>
+            <div className="user-section">
                 <h2>Contact Details:</h2>
                 <p>Name: {formData.fullname}</p>
                 <p>Email: {formData.email}</p>
                 <p>Contact: {formData.telephone}</p>
+                <p>Business Type: {formData.description}</p>
             </div>
-            <div>
+            <div className="website-section">
                 <h2>Website Specification:</h2>
                 <p>{formData.need === "new" ? "A new website" : "Upgrade on existing website"}</p>
                 <p>
@@ -54,6 +104,41 @@ export default function SectionFive({ animate, formData }) {
                         ? "unsure on how many webpages"
                         : `with ${formData.pages} webpages`}
                 </p>
+            </div>
+            <div className="extra-section">
+                <h2>Extras:</h2>
+                <div className="extra-grid">
+                    {formData.logoDesign === true && (
+                        <div className="extra-add">
+                            <h5>Logo Design</h5>
+                            <i className="fas fa-dragon"></i>
+                        </div>
+                    )}
+                    {formData.virtualTours === true && (
+                        <div className="extra-add">
+                            <h5>Virtual Tours</h5>
+                            <i className="far fa-eye"></i>
+                        </div>
+                    )}
+                    {formData.photography === true && (
+                        <div className="extra-add">
+                            <h5>Photography</h5>
+                            <i className="fas fa-camera-retro"></i>
+                        </div>
+                    )}
+                    {formData.copywriting === true && (
+                        <div className="extra-add">
+                            <h5>Copywriting</h5>
+                            <i className="fas fa-spell-check"></i>
+                        </div>
+                    )}
+                    {formData.social === true && (
+                        <div className="extra-add">
+                            <h5>Social Media</h5>
+                            <i className="fab fa-instagram"></i>
+                        </div>
+                    )}
+                </div>
             </div>
         </Container>
     );

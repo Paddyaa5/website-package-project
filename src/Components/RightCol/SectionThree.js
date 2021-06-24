@@ -18,7 +18,6 @@ const Container = styled(StyledSection)`
             border-radius: 8px;
             margin-top: 10px;
             padding: 12px 10px;
-            
         }
         .selections {
             display: flex;
@@ -30,13 +29,11 @@ const Container = styled(StyledSection)`
                 border-radius: 25px;
                 label {
                     height: 100%;
-                    padding: 15px 0;
+                    padding: 20px 0;
                     font-weight: 400;
                     border-radius: 25px;
                     width: 100%;
-                    width: 100%;
                     font-size: 14px;
-                    
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -64,8 +61,8 @@ const Container = styled(StyledSection)`
                 justify-content: space-around;
                 padding: 10px;
                 font-size: 14px;
-                height: 70px;
-                border-radius: 35px;
+                height: 60px;
+                border-radius: 25px;
                 cursor: pointer;
                 align-items: center;
                 width: 45%;
@@ -78,18 +75,15 @@ const Container = styled(StyledSection)`
             color: ${(props) => props.theme.darkestOrange};
             box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
                 inset -3px -3px 5px rgba(0, 0, 0, 0.35);
+            transition: 0.5s ease-in-out;
         }
         .not-active {
             color: ${(props) => props.theme.light};
             background: rgba(27, 27, 27, 0.5);
             box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
-            background-color: #212529;
+            transition: 0.5s ease-in-out;
         }
-        
-
-        }
-    
-    
+    }
 `;
 
 export default function SectionThree({ animate, formData, setFormData }) {
@@ -121,8 +115,6 @@ export default function SectionThree({ animate, formData, setFormData }) {
     const handleInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
- 
 
     useEffect(() => {
         console.log(formData);
@@ -232,22 +224,19 @@ export default function SectionThree({ animate, formData, setFormData }) {
                     </div>
                 </div>
             </section>
-
             <section className="time-section">
                 <h5>When would you be hoping to get you website completed?</h5>
-                <h6>This is just an estimate and we can work on this with you in more detail if needed.</h6>
+                <h6>
+                    This is just an estimate and we can work on this with you in more detail if
+                    needed.
+                </h6>
                 <div className="selections">
                     <div className="radio">
                         <label
                             id="opn1"
                             className={formData.time === "opn1" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="opn1"
-                                name="time"
-                                onChange={handleInput}
-                            />
+                            <input type="radio" value="opn1" name="time" onChange={handleInput} />
                             0-3 months
                         </label>
                     </div>
@@ -256,12 +245,7 @@ export default function SectionThree({ animate, formData, setFormData }) {
                             id="opn2"
                             className={formData.time === "opn2" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="opn2"
-                                name="time"
-                                onChange={handleInput}
-                            />
+                            <input type="radio" value="opn2" name="time" onChange={handleInput} />
                             3-6 months
                         </label>
                     </div>
@@ -270,35 +254,22 @@ export default function SectionThree({ animate, formData, setFormData }) {
                             id="opn3"
                             className={formData.time === "opn3" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="opn3"
-                                name="time"
-                                onChange={handleInput}
-                            />
+                            <input type="radio" value="opn3" name="time" onChange={handleInput} />
                             6+ months
                         </label>
                     </div>
-                    
+
                     <div className="radio">
                         <label
                             id="opn5"
                             className={formData.time === "opn5" ? "active" : "not-active"}
                         >
-                            <input
-                                type="radio"
-                                value="opn5"
-                                name="time"
-                                onChange={handleInput}
-                            />
+                            <input type="radio" value="opn5" name="time" onChange={handleInput} />
                             Unsure
                         </label>
                     </div>
                 </div>
             </section>
-            
-
         </Container>
     );
 }
-
