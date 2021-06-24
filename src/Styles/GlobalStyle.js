@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const Theme = {
+export const darkTheme = {
     orange: "#FBBF00",
     lightOrange: "#FFCA00",
     darkOrange: "#F49D00",
@@ -9,6 +9,18 @@ export const Theme = {
     lightGray: "#343a40",
     lightestGray: "#6c757d",
     light: "#f8f9fa",
+    dark: "#222222",
+};
+
+export const lightTheme = {
+    orange: "#FBBF00",
+    lightOrange: "#FFCA00",
+    darkOrange: "#F49D00",
+    darkestOrange: "#ee7b00",
+    darkest: "#212529",
+    lightGray: "#343a40",
+    lightestGray: "#6c757d",
+    light: "#ee7b00",
     dark: "#222222",
 };
 

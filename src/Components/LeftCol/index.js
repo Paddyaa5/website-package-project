@@ -6,6 +6,7 @@ import ProgressBar from "./ProgressBar";
 import StartButton from "../Buttons/StartButton";
 import ProgressNumber from "./ProgressNumber";
 import ProgressText from "./ProgressText";
+import ToggleSwitch from "../Buttons/ToggleSwitch"
 //images
 import logo from "../../Assets/MB_LOGO.png";
 
@@ -45,6 +46,7 @@ export default function LeftColumn({
     setSection,
     formData,
     setFormData,
+    handleTheme,
 }) {
     let containerRef = useRef(null);
 
@@ -84,6 +86,7 @@ export default function LeftColumn({
         <Container ref={(el) => (containerRef = el)}>
             <a href="https://www.morganbranding.co.uk/" target="_blank">
             <img src={logo} alt="Morgan-Branding-Logo" className="logo" /></a>
+            <ToggleSwitch handleTheme={handleTheme} />
             <ProgressNumber animate={animate} section={section} />
             <ProgressText animate={animate} section={section} />
             <ProgressBar
@@ -99,6 +102,7 @@ export default function LeftColumn({
                 section={section}
                 setSection={setSection}
             />
+            
         </Container>
     );
 }
