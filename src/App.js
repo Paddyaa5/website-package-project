@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { GlobalStyle, Theme } from "./Styles/GlobalStyle";
+import { GlobalStyle, darkTheme, lightTheme } from "./Styles/GlobalStyle";
+
 //components
 import LeftColumn from "./Components/LeftCol";
 import RightColumn from "./Components/RightCol";
 import Buttons from "./Components/Buttons";
+
 
 const AppContainer = styled.div`
     position: relative;
@@ -21,8 +23,9 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
+    const [theme, setTheme] = useState('dark');
     const [animate, setAnimate] = useState(0);
-    const [section, setSection] = useState(0);
+    const [section, setSection] = useState(1);
     const [formData, setFormData] = useState({
         fullname: "",
         email: "",
@@ -42,14 +45,34 @@ const App = () => {
         budget: 1500,
     });
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSection(1);
-        }, 50);
-    }, []);
+    const themeToggler = (e) => {
+         if(theme ==='dark') {
+             setTheme('light')
+         } else {setTheme('dark')}
+        
+        // theme === 'dark' ? setTheme('light') : setTheme ('dark')
+        console.log(theme)
+    }   
+
+    const handleTheme = () => {
+        if(theme ==='dark') {
+            setTheme('light')
+        } else {
+            setTheme('dark')
+        }
+    }
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSection(1);
+    //     }, 50);
+    // }, []);
+
+    // useEffect(() => {},[theme]) 
+    console.log("hi")
 
     return (
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
             <GlobalStyle />
             <AppContainer>
                 <div className="inner-container">
@@ -60,6 +83,7 @@ const App = () => {
                         setSection={setSection}
                         formData={formData}
                         setFormData={setFormData}
+                        handleTheme={handleTheme}
                     ></LeftColumn>
                     <RightColumn
                         animate={animate}
