@@ -17,8 +17,8 @@ const Container = styled(StyledSection)`
             justify-content: space-between;
             margin-top: 20px;
             .item {
-                height: 100px;
-                width: 100px;
+                height: 125px;
+                width: 125px;
                 border-radius: 25px;
                 .true {
                     color: ${(props) => props.theme.darkestOrange};
@@ -38,14 +38,13 @@ const Container = styled(StyledSection)`
                     font-weight: 300;
                     border-radius: 25px;
                     width: 100%;
-                    width: 100%;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
                     align-items: center;
-                    font-size: 12px;
+                    font-size: 14px;
                     i {
-                        font-size: 22px;
+                        font-size: calc(18px + 0.5vw);
                     }
                 }
                 input {

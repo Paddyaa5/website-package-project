@@ -36,7 +36,8 @@ h1,h2,h3{
 h4,h5{
     font-weight: 600
 }
-p{
+textarea, input, p{
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400
 }
 h6{

@@ -32,6 +32,7 @@ const App = () => {
         need: "",
         purpose: "",
         pages: "",
+        time: "",
         designInfo: "",
         logoDesign: false,
         virtualTours: false,
