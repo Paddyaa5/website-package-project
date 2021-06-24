@@ -30,7 +30,7 @@ const App = () => {
         owner: "Yes",
         description: "",
         need: "",
-        purpose: "",
+        purpose: "e-commerce",
         pages: "",
         time: "",
         designInfo: "",

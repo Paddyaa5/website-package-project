@@ -8,8 +8,8 @@ const Container = styled(StyledSection)`
     opacity: 0;
     color: ${(props) => props.theme.light};
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 80px 1fr 0.8fr;
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: 100px 1fr 180px;
     gap: 10px 10px;
     grid-template-areas:
         "header header"
@@ -45,11 +45,12 @@ const Container = styled(StyledSection)`
         }
     }
     h2 {
-        margin: 15px 0;
+        margin: 2vh 0;
         color: ${(props) => props.theme.darkestOrange};
     }
-    p {
-        margin: 5px 0;
+    p,
+    li {
+        margin: 1vh 0;
     }
 `;
 
@@ -89,24 +90,45 @@ export default function SectionFive({ animate, formData }) {
                 </h1>
             </div>
             <div className="user-section">
-                <h2>Contact Details:</h2>
+                <h2>Contact Details</h2>
                 <p>Name: {formData.fullname}</p>
                 <p>Email: {formData.email}</p>
                 <p>Contact: {formData.telephone}</p>
-                <p>Business Type: {formData.description}</p>
+                <p>Company: {formData.description}</p>
             </div>
             <div className="website-section">
-                <h2>Website Specification:</h2>
-                <p>{formData.need === "new" ? "A new website" : "Upgrade on existing website"}</p>
-                <p>
-                    A {formData.purpose} website,{" "}
-                    {formData.pages === "unsure"
-                        ? "unsure on how many webpages"
-                        : `with ${formData.pages} webpages`}
-                </p>
+                <h2>Website Specification</h2>
+                <ul>
+                    {formData.need === "new" && (
+                        <li>You require a new website to be designed and produced.</li>
+                    )}
+                    {formData.need === "upgrade" && (
+                        <li>You require an existing website to be updated/re-designed.</li>
+                    )}
+                    {formData.purpose === "unsure" || formData.purpose === "" ? (
+                        ""
+                    ) : (
+                        <li>
+                            The main purpose of the site will be as an {formData.purpose} website.
+                        </li>
+                    )}
+                    {formData.pages === "unsure" || formData.pages === "" ? (
+                        ""
+                    ) : (
+                        <li>The website will require {formData.pages} pages.</li>
+                    )}
+                    {formData.time === "unsure" || formData.time === "" ? (
+                        ""
+                    ) : (
+                        <li>
+                            You are looking for the website to be completed within {formData.time}.
+                        </li>
+                    )}
+                    <li>You budget for the full package is £{formData.budget}.</li>
+                </ul>
             </div>
             <div className="extra-section">
-                <h2>Extras:</h2>
+                <h2>Extras</h2>
                 <div className="extra-grid">
                     {formData.logoDesign === true && (
                         <div className="extra-add">
