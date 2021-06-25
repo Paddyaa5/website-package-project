@@ -26,7 +26,7 @@ const Container = styled(StyledSection)`
                         inset -3px -3px 5px rgba(0, 0, 0, 0.35);
                 }
                 .false {
-                    background: rgba(27, 27, 27, 0.5);
+                    background: rgba(27, 27, 27, 1);
                     color: ${(props) => props.theme.highlight};
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
                         -3px -3px 5px rgba(0, 0, 0, 0.35);
@@ -88,7 +88,7 @@ const Container = styled(StyledSection)`
             .value-box {
                 height: 60px;
                 width: 100px;
-                background: rgba(27, 27, 27, 0.5);
+                background: rgba(27, 27, 27, 1);
                 box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
                 border-radius: 10px;
                 display: flex;

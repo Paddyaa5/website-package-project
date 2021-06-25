@@ -79,7 +79,7 @@ const Container = styled(StyledSection)`
         }
         .not-active {
             color: ${(props) => props.theme.highlight};
-            background: rgba(27, 27, 27, 0.5);
+            background: rgba(27, 27, 27, 1);
             box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
             transition: 0.5s ease-in-out;
         }

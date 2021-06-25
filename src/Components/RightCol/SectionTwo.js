@@ -75,7 +75,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
             </section>
             <section className="enter-email">
                 <h5>Email :</h5>
-                <h6>This will only be used by us</h6>
+                <h6>This will only be used by us.</h6>
                 <StyledTextInput
                     type="text"
                     className="email"
@@ -86,7 +86,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
             </section>
             <section className="enter-number">
                 <h5>Best Contact Number :</h5>
-                <h6>Again, don't worry this will only be used by us</h6>
+                <h6>Again, don't worry this will only be used by us.</h6>
                 <StyledTextInput
                     type="text"
                     className="number"
@@ -104,7 +104,7 @@ export default function SectionTwo({ animate, formData, setFormData }) {
                 </select>
             </section>
             <section className="business-type">
-                <h5>Being as brief (or detailed) as you like, please describe the type of business</h5>
+                <h5>Being as brief (or detailed) as you like, please describe the type of business.</h5>
                 <StyledTextArea
                     type="text"
                     className="type"

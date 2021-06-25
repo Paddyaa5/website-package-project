@@ -56,6 +56,8 @@ export const StyledTextInput = styled.input`
     }
 `;
 export const StyledTextArea = styled.textarea`
+    
+
     resize: none;
     border-radius: 8px;
     border: 2px solid ${(props) => props.theme.lightGray};
@@ -63,7 +65,7 @@ export const StyledTextArea = styled.textarea`
     width: 50%;
     background: none;
     color: ${(props) => props.theme.secondary};
-    height: 5.4vh;
+    height: 5.7vh;
     transition: width 0.5s ease-in-out;
     margin: 4px 0;
     padding: 12px 10px;
