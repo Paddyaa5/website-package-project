@@ -6,13 +6,13 @@ import gsap from "gsap";
 const Container = styled(StyledSection)`
     opacity: 0;
     section {
-        color: ${(props) => props.theme.light};
+        color: ${(props) => props.theme.highlight};
         display: flex;
         flex-direction: column;
         select {
             width: 100%;
-            background-color: ${(props) => props.theme.dark};
-            color: ${(props) => props.theme.darkestOrange};
+            background-color: ${(props) => props.theme.primary};
+            color: ${(props) => props.theme.secondary};
             height: 50px;
             outline: none;
             border-radius: 8px;
@@ -72,13 +72,13 @@ const Container = styled(StyledSection)`
             }
         }
         .active {
-            color: ${(props) => props.theme.darkestOrange};
+            color: ${(props) => props.theme.secondary};
             box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
                 inset -3px -3px 5px rgba(0, 0, 0, 0.35);
             transition: 0.5s ease-in-out;
         }
         .not-active {
-            color: ${(props) => props.theme.light};
+            color: ${(props) => props.theme.highlight};
             background: rgba(27, 27, 27, 0.5);
             box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15), -3px -3px 5px rgba(0, 0, 0, 0.35);
             transition: 0.5s ease-in-out;

@@ -9,9 +9,9 @@ const StyledToggle = styled.div`
 			transform: rotate(360deg);
 			background-color: ${(props) => props.theme.dark};
 			&:before {
-				transform: translateX(2.4vw);
+				transform: translateX(2.6vw);
 				background-color: ${(props) => props.theme.darkestOrange};;
-				border-color: ${(props) => props.theme.light};
+				border-color: ${(props) => props.theme.toggleBorder};
 			}
 		}
 	}
@@ -19,13 +19,14 @@ const StyledToggle = styled.div`
 	
 		label {display: flex;
 		width: 4.26vw;
-		height:  3.46vh;
-		border: 0.5vh solid;
+		height:  3vh;
+		border: 0.35vh solid;
 		border-radius: 100em;
 		position: relative;
 		transition: transform .75s ease-in-out;
 		transform-origin: 50% 50%;
 		cursor: pointer;
+		border-color: ${(props) => props.theme.toggleBorder};
 		
 		&:before {
 			transition: transform .75s ease;
@@ -35,8 +36,9 @@ const StyledToggle = styled.div`
 			position: absolute;
 			width: 1.21vw;
 			height: 2.30vh;
-			background-color: ${(props) => props.theme.lightGray};;
+			background-color: ${(props) => props.theme.secondary};;
 			border-radius: 50%;
+			
 			
 		}
 }

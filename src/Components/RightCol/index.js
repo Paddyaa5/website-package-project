@@ -14,7 +14,8 @@ const Container = styled.section`
     width: 60vw;
     height: 100%;
     border-radius: 25px;
-    background-color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.primary};
+    transition: background-color 1s;
     box-shadow: 5px 15px 35px 1px #000000;
 `;
 

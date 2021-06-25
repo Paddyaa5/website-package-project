@@ -1,27 +1,32 @@
 import { createGlobalStyle } from "styled-components";
 
 export const darkTheme = {
-    orange: "#FBBF00",
-    lightOrange: "#FFCA00",
-    darkOrange: "#F49D00",
-    darkestOrange: "#ee7b00",
+    
+    secondary: "#ee7b00",
     darkest: "#212529",
     lightGray: "#343a40",
     lightestGray: "#6c757d",
-    light: "#f8f9fa",
-    dark: "#222222",
+    highlight: "#f8f9fa",
+    primary: "#222222",
+    bg1: "#6c757d",
+    bg2: "#343a40",
+    bg3: "#212529",
+    toggleBorder: "#f8f9fa",
+
 };
 
 export const lightTheme = {
-    orange: "#FBBF00",
-    lightOrange: "#FFCA00",
-    darkOrange: "#F49D00",
-    darkestOrange: "#ee7b00",
+    
+    
+    secondary: "#222222",
     darkest: "#212529",
     lightGray: "#343a40",
     lightestGray: "#6c757d",
-    light: "#ee7b00",
-    dark: "#222222",
+    highlight: "#ee7b00",
+    primary: "#f8f9fa",
+    bg1: "#FAAE00",
+    bg2: "#FAAE00",
+    bg3: "#EF7E00",
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -29,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.5s;
     
 }
 

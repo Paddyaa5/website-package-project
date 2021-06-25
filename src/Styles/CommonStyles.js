@@ -26,7 +26,7 @@ export const StyledSection = styled.section`
     padding: 5vh 4vw 100px 4vw;
     display: grid;
     h5 {
-        color: ${(props) => props.theme.light};
+        color: ${(props) => props.theme.highlight};
         font-size: calc(10px + 0.4vw);
     }
     h6 {
@@ -41,18 +41,18 @@ export const StyledTextInput = styled.input`
     outline: none;
     width: 50%;
     background: none;
-    color: ${(props) => props.theme.darkestOrange};
+    color: ${(props) => props.theme.secondary};
     height: 5vh;
     transition: height 0.6s, width 0.8s ease-in-out;
     margin: 4px 0;
     padding: 12px 10px;
     &:hover {
-        border: 1px solid ${(props) => props.theme.light};
+        border: 1px solid ${(props) => props.theme.highlight};
     }
     &:focus {
         width: 100%;
         height: 6vh;
-        border: 1px solid ${(props) => props.theme.darkestOrange};
+        border: 1px solid ${(props) => props.theme.secondary};
     }
 `;
 export const StyledTextArea = styled.textarea`
@@ -62,18 +62,18 @@ export const StyledTextArea = styled.textarea`
     outline: none;
     width: 50%;
     background: none;
-    color: ${(props) => props.theme.darkestOrange};
-    height: 45px;
+    color: ${(props) => props.theme.secondary};
+    height: 5.4vh;
     transition: width 0.5s ease-in-out;
     margin: 4px 0;
     padding: 12px 10px;
     &:hover {
-        border: 1px solid ${(props) => props.theme.light};
+        border: 1px solid ${(props) => props.theme.highlight};
     }
     &:focus {
         width: 100%;
         height:10vh;
         transition: height 1s, width 1s ease-in-out;
-        border: 1px solid ${(props) => props.theme.darkestOrange};
+        border: 1px solid ${(props) => props.theme.secondary};
     }
 `;
