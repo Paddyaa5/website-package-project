@@ -5,7 +5,7 @@ import gsap from "gsap";
 const Container = styled.h1`
     display: flex;
     overflow: hidden;
-    color: ${(props) => props.theme.darkestOrange};
+    color: ${(props) => props.theme.secondary};
     font-size: calc(30px + 2vw);
     opacity: 0;
 `;

@@ -10,7 +10,7 @@ const Button = styled(StyledButton)`
     background-size: 200%;
     background-position: right;
     transition: 500ms background-position ease-in-out, transform 250ms;
-    color: #222222;
+    color: ${(props) => props.theme.primary};
     opacity: 0;
     :hover {
         background-position: left;

@@ -6,7 +6,7 @@ import { StyledSection } from "../../Styles/CommonStyles";
 
 const Container = styled(StyledSection)`
     opacity: 0;
-    color: ${(props) => props.theme.light};
+    color: ${(props) => props.theme.highlight};
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     grid-template-rows: 100px 1fr 180px;
@@ -46,7 +46,7 @@ const Container = styled(StyledSection)`
     }
     h2 {
         margin: 2vh 0;
-        color: ${(props) => props.theme.darkestOrange};
+        color: ${(props) => props.theme.secondary};
     }
     p,
     li {

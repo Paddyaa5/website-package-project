@@ -9,7 +9,7 @@ const Container = styled(StyledSection)`
     section {
         width: 100%;
         margin: 15px 0;
-        color: ${(props) => props.theme.light};
+        color: ${(props) => props.theme.highlight};
         display: flex;
         flex-direction: column;
         .selections {
@@ -21,13 +21,13 @@ const Container = styled(StyledSection)`
                 width: 125px;
                 border-radius: 25px;
                 .true {
-                    color: ${(props) => props.theme.darkestOrange};
+                    color: ${(props) => props.theme.secondary};
                     box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.15),
                         inset -3px -3px 5px rgba(0, 0, 0, 0.35);
                 }
                 .false {
                     background: rgba(27, 27, 27, 0.5);
-                    color: ${(props) => props.theme.light};
+                    color: ${(props) => props.theme.highlight};
                     box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.15),
                         -3px -3px 5px rgba(0, 0, 0, 0.35);
                 }
@@ -74,14 +74,14 @@ const Container = styled(StyledSection)`
                     width: 20px;
                     height: 20px;
                     cursor: pointer;
-                    background-color: ${(props) => props.theme.darkestOrange};
+                    background-color: ${(props) => props.theme.secondary};
                     border-radius: 50%;
                 }
                 &::-moz-range-thumb {
                     width: 20px;
                     height: 20px;
                     cursor: pointer;
-                    background-color: ${(props) => props.theme.darkestOrange};
+                    background-color: ${(props) => props.theme.secondary};
                     border-radius: 50%;
                 }
             }

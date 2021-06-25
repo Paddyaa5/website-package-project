@@ -16,7 +16,8 @@ const Container = styled.section`
     width: 100%;
     height: 100%;
     border-radius: 25px;
-    background-color: ${(props) => props.theme.dark};
+    background-color: ${(props) => props.theme.primary};
+    transition: background-color 1s;
     padding: 40px 60px;
     display: flex;
     flex-direction: column;
@@ -26,6 +27,7 @@ const Container = styled.section`
         width: 75px;
     }
     .logo {
+        color: black;
         height: 75px;
         width: 75px;
         object-fit: cover;

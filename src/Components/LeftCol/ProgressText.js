@@ -16,7 +16,7 @@ const Container = styled.div`
         align-items: center;
         overflow: hidden;
         margin: 0;
-        color: ${(props) => props.theme.light};
+        color: ${(props) => props.theme.highlight};
         font-size: calc(20px + 2vw);
     }
 `;

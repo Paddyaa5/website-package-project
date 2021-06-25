@@ -7,18 +7,19 @@ import { StyledSection, StyledTextInput, StyledTextArea } from "../../Styles/Com
 const Container = styled(StyledSection)`
     opacity: 0;
     section {
-        color: ${(props) => props.theme.light};
+        color: ${(props) => props.theme.highlight};
         display: flex;
         flex-direction: column;
         select {
             width: 15%;
-            background-color: ${(props) => props.theme.darkest};
-            color: ${(props) => props.theme.darkestOrange};
+            background-color: ${(props) => props.theme.primary};
+            color: ${(props) => props.theme.secondary};
             height: 50px;
             outline: none;
             border-radius: 8px;
             margin: 4px 0;
             padding: 12px 10px;
+            
         }
 
         input.type {

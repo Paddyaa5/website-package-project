@@ -12,7 +12,7 @@ const AppContainer = styled.div`
     height: 100vh;
     width: 100vw;
     padding: 3vw;
-    background-image: linear-gradient(to bottom right, #6c757d, #343a40, #212529);
+    background-image: linear-gradient(to bottom right, ${(props) => props.theme.bg1}, ${(props) => props.theme.bg2}, ${(props) => props.theme.bg3});
     .inner-container {
         position: relative;
         height: 100%;
