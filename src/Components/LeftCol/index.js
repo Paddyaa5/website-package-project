@@ -6,9 +6,10 @@ import ProgressBar from "./ProgressBar";
 import StartButton from "../Buttons/StartButton";
 import ProgressNumber from "./ProgressNumber";
 import ProgressText from "./ProgressText";
-import ToggleSwitch from "../Buttons/ToggleSwitch"
+import ToggleSwitch from "../Buttons/ToggleSwitch";
 //images
 import logo from "../../Assets/MB_LOGO.png";
+import Package from "./Package";
 
 const Container = styled.section`
     position: absolute;
@@ -21,8 +22,8 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 5px 15px 35px 1px #000000;
-    a{
-        width:75px;
+    a {
+        width: 75px;
     }
     .logo {
         height: 75px;
@@ -30,12 +31,10 @@ const Container = styled.section`
         object-fit: cover;
         cursor: pointer;
         transition: transform 0.8s;
-         &:hover {
-           filter: brightness(120%);
-           transform: scale(1.3)
-           }
-          
-         
+        &:hover {
+            filter: brightness(120%);
+            transform: scale(1.3);
+        }
     }
 `;
 
@@ -85,7 +84,8 @@ export default function LeftColumn({
     return (
         <Container ref={(el) => (containerRef = el)}>
             <a href="https://www.morganbranding.co.uk/" target="_blank">
-            <img src={logo} alt="Morgan-Branding-Logo" className="logo" /></a>
+                <img src={logo} alt="Morgan-Branding-Logo" className="logo" />
+            </a>
             <ToggleSwitch handleTheme={handleTheme} />
             <ProgressNumber animate={animate} section={section} />
             <ProgressText animate={animate} section={section} />
@@ -102,7 +102,13 @@ export default function LeftColumn({
                 section={section}
                 setSection={setSection}
             />
-            
+            <Package
+                animate={animate}
+                section={section}
+                setSection={setSection}
+                formData={formData}
+                setFormData={setFormData}
+            />
         </Container>
     );
 }

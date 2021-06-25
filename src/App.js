@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, darkTheme, lightTheme } from "./Styles/GlobalStyle";
-
 //components
 import LeftColumn from "./Components/LeftCol";
 import RightColumn from "./Components/RightCol";
 import Buttons from "./Components/Buttons";
 
-
 const AppContainer = styled.div`
     position: relative;
-    min-height: 400px;
+    min-height: 600px;
     height: 100vh;
     width: 100vw;
     padding: 3vw;
@@ -23,7 +21,7 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState("dark");
     const [animate, setAnimate] = useState(0);
     const [section, setSection] = useState(1);
     const [formData, setFormData] = useState({
@@ -46,21 +44,23 @@ const App = () => {
     });
 
     const themeToggler = (e) => {
-         if(theme ==='dark') {
-             setTheme('light')
-         } else {setTheme('dark')}
-        
+        if (theme === "dark") {
+            setTheme("light");
+        } else {
+            setTheme("dark");
+        }
+
         // theme === 'dark' ? setTheme('light') : setTheme ('dark')
-        console.log(theme)
-    }   
+        console.log(theme);
+    };
 
     const handleTheme = () => {
-        if(theme ==='dark') {
-            setTheme('light')
+        if (theme === "dark") {
+            setTheme("light");
         } else {
-            setTheme('dark')
+            setTheme("dark");
         }
-    }
+    };
 
     // useEffect(() => {
     //     setTimeout(() => {
@@ -68,11 +68,11 @@ const App = () => {
     //     }, 50);
     // }, []);
 
-    // useEffect(() => {},[theme]) 
-    console.log("hi")
+    // useEffect(() => {},[theme])
+    console.log("hi");
 
     return (
-        <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+        <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
             <GlobalStyle />
             <AppContainer>
                 <div className="inner-container">
